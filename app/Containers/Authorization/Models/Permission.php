@@ -4,6 +4,7 @@ namespace App\Containers\Authorization\Models;
 
 use Apiato\Core\Traits\HashIdTrait;
 use Apiato\Core\Traits\HasResourceKeyTrait;
+use Apiato\Core\Traits\HasUuids;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
 /**
@@ -16,6 +17,14 @@ class Permission extends SpatiePermission
 
     use HashIdTrait;
     use HasResourceKeyTrait;
+    use HasUuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     protected $guard_name = 'web';
 

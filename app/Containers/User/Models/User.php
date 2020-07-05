@@ -7,6 +7,7 @@ use App\Containers\Authorization\Traits\AuthorizationTrait;
 use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
+use App\Containers\Store\Models\Store;
 use App\Ship\Parents\Models\UserModel;
 use Illuminate\Notifications\Notifiable;
 
@@ -88,6 +89,16 @@ class User extends UserModel implements ChargeableInterface
     public function paymentAccounts()
     {
         return $this->hasMany(PaymentAccount::class);
+    }
+
+    public function stores()
+    {
+        return $this->belongsToMany(
+            Store::class,
+            'store_owner',
+            'user_id',
+            'store_id'
+        );
     }
 
 }
