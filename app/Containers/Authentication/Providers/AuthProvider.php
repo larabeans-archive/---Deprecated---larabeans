@@ -4,6 +4,8 @@ namespace App\Containers\Authentication\Providers;
 
 use Apiato\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
+use App\Containers\Authentication\Models\Client;
+use App\Containers\Authentication\Models\PersonalAccessClient;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
 use Laravel\Passport\Passport;
@@ -69,5 +71,12 @@ class AuthProvider extends ParentAuthProvider
         Passport::tokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.expires-in')));
 
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.refresh-expires-in')));
+
+      /**
+       *  To use customize Pssport
+       *  Replace increment id to uuid.
+       */
+      Passport::useClientModel(Client::class);
+      Passport::usePersonalAccessClientModel(PersonalAccessClient::class);
     }
 }
