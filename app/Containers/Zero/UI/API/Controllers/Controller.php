@@ -19,17 +19,6 @@ use Apiato\Core\Foundation\Facades\Apiato;
 class Controller extends ApiController
 {
     /**
-     * @param CreateZeroRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function createZero(CreateZeroRequest $request)
-    {
-        $zero = Apiato::call('Zero@CreateZeroAction', [$request]);
-
-        return $this->created($this->transform($zero, ZeroTransformer::class));
-    }
-
-    /**
      * @param FindZeroByIdRequest $request
      * @return array
      */
@@ -49,27 +38,5 @@ class Controller extends ApiController
         $zeros = Apiato::call('Zero@GetAllZerosAction', [$request]);
 
         return $this->transform($zeros, ZeroTransformer::class);
-    }
-
-    /**
-     * @param UpdateZeroRequest $request
-     * @return array
-     */
-    public function updateZero(UpdateZeroRequest $request)
-    {
-        $zero = Apiato::call('Zero@UpdateZeroAction', [$request]);
-
-        return $this->transform($zero, ZeroTransformer::class);
-    }
-
-    /**
-     * @param DeleteZeroRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function deleteZero(DeleteZeroRequest $request)
-    {
-        Apiato::call('Zero@DeleteZeroAction', [$request]);
-
-        return $this->noContent();
     }
 }
