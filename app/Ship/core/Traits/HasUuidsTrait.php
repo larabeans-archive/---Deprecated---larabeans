@@ -4,7 +4,12 @@ namespace Apiato\Core\Traits;
 
 use Ramsey\Uuid\Uuid;
 
-trait HasUuids
+/**
+ * Class HashIdTrait.
+ *
+ * @author  Syed Ali Kazmi <ali@kazmi.me>
+ */
+trait HasUuidsTrait
 {
     /**
     * Boot function from laravel.

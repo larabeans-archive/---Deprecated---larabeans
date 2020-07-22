@@ -5,7 +5,7 @@ namespace App\Ship\Parents\Models;
 use Apiato\Core\Abstracts\Models\UserModel as AbstractUserModel;
 use Apiato\Core\Traits\HashIdTrait;
 use Apiato\Core\Traits\HasResourceKeyTrait;
-use Apiato\Core\Traits\HasUuids;
+use Apiato\Core\Traits\HasUuidsTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -25,7 +25,7 @@ abstract class UserModel extends AbstractUserModel
     use HasRoles;
     use HasApiTokens;
     use HasResourceKeyTrait;
-    use HasUuids;
+    use HasUuidsTrait;
 
     /**
      * Indicates if the IDs are auto-incrementing.
