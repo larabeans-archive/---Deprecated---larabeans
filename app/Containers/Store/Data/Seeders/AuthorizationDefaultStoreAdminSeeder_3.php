@@ -12,7 +12,7 @@ class AuthorizationDefaultStoreAdminSeeder_3 extends Seeder
         // Default Store Admin (with their roles) ---------------------------------------------
         Apiato::call('User@CreateUserByCredentialsTask', [
             $isClient = false,
-            'default-store@mangwalo.com',
+            'default-store@larabeans.com',
             'admin',
             'Store Admin',
         ])->assignRole(Apiato::call('Authorization@FindRoleTask', ['store-admin']));

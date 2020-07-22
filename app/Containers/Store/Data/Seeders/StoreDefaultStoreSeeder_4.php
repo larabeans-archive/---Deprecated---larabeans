@@ -12,6 +12,6 @@ class StoreDefaultStoreSeeder_4 extends Seeder
         // Default Store Seeder ---------------------------------------------
         Apiato::call('Store@CreateStoreTask', [
             'Default Store',
-        ])->assignOwner(Apiato::call('User@FindUserByEmailTask', ['default-store@mangwalo.com']));
+        ])->assignOwner(Apiato::call('User@FindUserByEmailTask', ['default-store@larabeans.com']));
     }
 }
