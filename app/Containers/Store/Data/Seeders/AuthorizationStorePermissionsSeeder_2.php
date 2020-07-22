@@ -10,7 +10,7 @@ use App\Ship\Parents\Seeders\Seeder;
  * @package App\Containers\Store\Data\Seeders
  * @version 0.2.0
  *
- * @author Syed Ali Kazmi <alikazmi@mangwalo.com>
+ * @author Syed Ali Kazmi <ali@kazmi.me>
  */
 class AuthorizationStorePermissionsSeeder_2 extends Seeder
 {

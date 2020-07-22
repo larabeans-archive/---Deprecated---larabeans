@@ -10,7 +10,7 @@ use phpDocumentor\Reflection\Types\Void_;
  * Class AuthorizationStoreRolesSeeder_1
  * @package App\Containers\Store\Data\Seeders
  * @version 0.2.0
- * @author Syed Ali Kazmi <alikazmi@mangwalo.com>
+ * @author Syed Ali Kazmi <ali@kazmi.me>
  */
 class AuthorizationStoreRolesSeeder_1 extends Seeder
 {
