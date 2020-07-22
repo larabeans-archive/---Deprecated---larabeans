@@ -8,6 +8,12 @@ try to go with same approach to minimize complexity.
 ## Migration
 Contains new migrations to update core tables primary key type to uuid, which is incremental by default.
 
+## Traits
+Adds New Trait for Uuid, to be used in parent models.
+
+- app/Ship/core/Traits/HasUuids.php
+- app/Ship/core/Traits/MultiTenantable.php
+
 ## Models
 Updates below models, to make these compatible with uuid primary key type.
 
@@ -19,6 +25,7 @@ Updates below models, to make these compatible with uuid primary key type.
 
 New models to be use in AuthProvider to make it compatible with uuid primary key type.
 
+- app/Ship/Parents/Models/SingleTenantModel.php
 - app/Containers/Authentication/Models/Client.php
 - app/Containers/Authentication/Models/PersonalAccessClient.php
 

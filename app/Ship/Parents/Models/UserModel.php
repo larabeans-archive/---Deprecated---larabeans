@@ -6,6 +6,7 @@ use Apiato\Core\Abstracts\Models\UserModel as AbstractUserModel;
 use Apiato\Core\Traits\HashIdTrait;
 use Apiato\Core\Traits\HasResourceKeyTrait;
 use Apiato\Core\Traits\HasUuidsTrait;
+use Apiato\Core\Traits\MultiTenantableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -26,6 +27,7 @@ abstract class UserModel extends AbstractUserModel
     use HasApiTokens;
     use HasResourceKeyTrait;
     use HasUuidsTrait;
+    Use MultiTenantableTrait;
 
     /**
      * Indicates if the IDs are auto-incrementing.
