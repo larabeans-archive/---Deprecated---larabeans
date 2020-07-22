@@ -1,10 +1,6 @@
-# Mangwalo API
+# Larabeans Core API
 
 <h3 align="center">Build scalable API's faster | With PHP 7.4 and Laravel 7</h3>
-
-<p align="center">
-   <img src="https://github.com/mangwalo/api/blob/master/logo.png" alt="Mangwalo Logo"/>
-</p>
 
 <a name="Introduction"></a>
 
@@ -66,4 +62,4 @@ Alternatively, you can build it using the [MVC](http://docs.apiato.io/getting-st
 <a name="License"></a>
 ## License
 
-[MIT](https://github.com/mangwalo/api/blob/master/LICENSE) © Mangwalo
+[MIT](https://github.com/larabeans/larabeans/blob/master/LICENSE) © Larabeans
