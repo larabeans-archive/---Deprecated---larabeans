@@ -1,0 +1,6 @@
+{
+  "name": "apiato/tenant",
+  "description": "Tenant Container for apiato.",
+  "require": {
+  }
+}
