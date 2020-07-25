@@ -11,10 +11,6 @@ class UpdateSettingContainerTablesPrimaryKeyTypeToUuid extends Migration
      */
     public function up()
     {
-        // Fixes Doctrine Error:
-        // Unknown column type "uuid" requested.
-        DoctrineType::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
-
         // First drop `id` column, so they can be re-added with new type.
         Schema::table('settings', function (Blueprint $table) {
           $table->dropColumn('id');

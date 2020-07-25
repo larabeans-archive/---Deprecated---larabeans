@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class UpdateUserContainerTablesPrimaryKeyToUuid extends Migration
+class UpdateUserContainerTablesPrimaryKeyTypeToUuid extends Migration
 {
 
     /**
@@ -11,9 +11,14 @@ class UpdateUserContainerTablesPrimaryKeyToUuid extends Migration
      */
     public function up()
     {
-        // Fixes Doctrine Error:
-        // Unknown column type "uuid" requested.
-        DoctrineType::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+        // First drop `id` reference, used as foregin key.
+        Schema::table('payment_accounts', function (Blueprint $table) {
+          $table->dropForeign('payment_accounts_user_id_foreign');
+        });
+
+        Schema::table('payment_transactions', function (Blueprint $table) {
+          $table->dropForeign('payment_transactions_user_id_foreign');
+        });
 
         // First drop `id` column, so they can be re-added with new type.
         Schema::table('users', function (Blueprint $table) {

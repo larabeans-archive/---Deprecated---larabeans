@@ -2,7 +2,7 @@
 
 namespace Apiato\Core\Traits;
 
-use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Str;
 
 /**
  * Class HashIdTrait.
@@ -19,7 +19,7 @@ trait HasUuidsTrait
         parent::boot();
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = Uuid::uuid4()->toString();
+            $model->{$model->getKeyName()} = (string) Str::uuid();
         });
     }
 }
