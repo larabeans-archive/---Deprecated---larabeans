@@ -44,11 +44,11 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update foreign keys
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
         });
 
         Schema::table($tableNames['roles'], function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
         });
 
         Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) {

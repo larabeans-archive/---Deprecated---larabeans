@@ -22,12 +22,12 @@ class UpdatePaymentContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update foreign keys
         Schema::table('payment_accounts', function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
           $table->uuid('user_id')->change();
         });
 
         Schema::table('payment_transactions', function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
           $table->uuid('user_id')->change();
         });
     }

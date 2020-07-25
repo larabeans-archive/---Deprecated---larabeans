@@ -25,7 +25,7 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update forgien keys
         Schema::table('oauth_auth_codes', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('user_id')->change();
             $table->uuid('client_id')->change();
         });
@@ -36,12 +36,12 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
         });
 
         Schema::table('oauth_clients', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('user_id')->nullable()->change();
         });
 
         Schema::table('oauth_personal_access_clients', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('client_id')->change();
         });
     }

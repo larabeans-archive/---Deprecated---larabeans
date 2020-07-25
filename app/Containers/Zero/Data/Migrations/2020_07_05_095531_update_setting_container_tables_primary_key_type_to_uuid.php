@@ -18,7 +18,7 @@ class UpdateSettingContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update foreign keys
         Schema::table('settings', function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
         });
     }
 
