@@ -5,7 +5,7 @@ namespace App\Containers\Store\Data\Seeders;
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Ship\Parents\Seeders\Seeder;
 
-class StoreDefaultDepartmentsSeeder_7 extends Seeder
+class StoreDefaultDepartmentsSeeder_17 extends Seeder
 {
     public function run()
     {

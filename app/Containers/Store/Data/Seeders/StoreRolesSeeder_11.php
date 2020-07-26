@@ -12,7 +12,7 @@ use phpDocumentor\Reflection\Types\Void_;
  * @version 0.2.0
  * @author Syed Ali Kazmi <ali@kazmi.me>
  */
-class AuthorizationStoreRolesSeeder_1 extends Seeder
+class StoreRolesSeeder_11 extends Seeder
 {
     /**
      * Run Databse Seed

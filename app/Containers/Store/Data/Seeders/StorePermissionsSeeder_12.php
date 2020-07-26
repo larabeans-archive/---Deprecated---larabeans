@@ -12,7 +12,7 @@ use App\Ship\Parents\Seeders\Seeder;
  *
  * @author Syed Ali Kazmi <ali@kazmi.me>
  */
-class AuthorizationStorePermissionsSeeder_2 extends Seeder
+class StorePermissionsSeeder_12 extends Seeder
 {
     /**
      * Run Database Seeder
