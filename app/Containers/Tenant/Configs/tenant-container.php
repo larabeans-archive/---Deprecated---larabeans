@@ -13,6 +13,8 @@ return [
 
     'enabled' => true,
 
+    'default_id' => 'a382fab1-77c4-44f0-b455-529630e041cf',
+
     /*
     |--------------------------------------------------------------------------
    ", "Ignore tables list
@@ -26,6 +28,7 @@ return [
     */
 
     'ignore_tables' => [
+      "jobs",
       "failed_jobs",
       "migrations",
 
@@ -43,6 +46,7 @@ return [
       "model_has_roles",
 
       "tenants",
+      "store_owner"
     ]
 
 
