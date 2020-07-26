@@ -8,3 +8,4 @@
  - Add a parent model with SingleTenancyModel, purpose is to skip some models which don'r require multi-tenant behavior e.g Country table etc.
  - Add functionality to manage manage multi-tenancy, create/add/edit
  - Add functionality to activate/de-activate tenant account.
+ - For seeder use post from _1  to _10

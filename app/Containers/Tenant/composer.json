@@ -1,6 +1,6 @@
 {
-  "name": "apiato/tenant",
-  "description": "Tenant Container for apiato.",
+  "name": "larabeans/tenant",
+  "description": "Tenant Container for larabeans.",
   "require": {
   }
 }

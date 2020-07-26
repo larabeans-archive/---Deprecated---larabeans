@@ -1,6 +1,6 @@
 {
-  "name": "apiato/store",
-  "description": "Store Container for apiato.",
+  "name": "larabeans/store",
+  "description": "Store Container for larabeans.",
   "require": {
   }
 }

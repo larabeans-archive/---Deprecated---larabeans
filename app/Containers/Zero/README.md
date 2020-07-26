@@ -18,10 +18,11 @@ Adds New Trait for Uuid, to be used in parent models.
 Updates below models, to make these compatible with uuid primary key type.
 
 - app/Ship/Parents/Models/Model.php
+- app/Ship/Parents/Models/UserModel.php
+
 - app/Containers/Authorization/Models/Permission.php
 - app/Containers/Authorization/Models/Role.php
 - app/Containers/User/Models/User.php
-- app/Ship/Parents/Models/UserModel.php
 
 New models to be use in AuthProvider to make it compatible with uuid primary key type.
 
