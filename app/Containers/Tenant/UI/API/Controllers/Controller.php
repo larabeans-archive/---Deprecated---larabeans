@@ -2,7 +2,11 @@
 
 namespace App\Containers\Tenant\UI\API\Controllers;
 
+use App\Containers\Tenant\Data\Transporters\ActivateTenantTransporter;
+use App\Containers\Tenant\Data\Transporters\DeactivateTenantTransporter;
+use App\Containers\Tenant\UI\API\Requests\ActivateTenantRequest;
 use App\Containers\Tenant\UI\API\Requests\CreateTenantRequest;
+use App\Containers\Tenant\UI\API\Requests\DeactivateTenantRequest;
 use App\Containers\Tenant\UI\API\Requests\DeleteTenantRequest;
 use App\Containers\Tenant\UI\API\Requests\GetAllTenantsRequest;
 use App\Containers\Tenant\UI\API\Requests\FindTenantByIdRequest;
@@ -71,5 +75,27 @@ class Controller extends ApiController
         Apiato::call('Tenant@DeleteTenantAction', [$request]);
 
         return $this->noContent();
+    }
+
+    /**
+     * @param ActivateTenantRequest $request
+     * @return array
+     */
+    public function activateTenant(ActivateTenantRequest $request)
+    {
+      $tenant = Apiato::call('Tenant@ActivateTenantAction', [ new ActivateTenantTransporter($request)]);
+
+      return $this->transform($tenant, TenantTransformer::class);
+    }
+
+    /**
+     * @param DeactivateTenantRequest $request
+     * @return array
+     */
+    public function deactivateTenant(DeactivateTenantRequest $request)
+    {
+      $tenant = Apiato::call('Tenant@DeactivateTenantAction', [ new DeactivateTenantTransporter($request)]);
+
+      return $this->transform($tenant, TenantTransformer::class);
     }
 }
