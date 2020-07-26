@@ -19,7 +19,8 @@ trait HasUuidsTrait
         parent::boot();
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string) Str::uuid();
+            if(!$model->{$model->getKeyName()})
+                $model->{$model->getKeyName()} = (string) Str::uuid();
         });
     }
 }
