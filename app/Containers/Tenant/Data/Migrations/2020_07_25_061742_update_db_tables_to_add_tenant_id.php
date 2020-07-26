@@ -18,9 +18,9 @@ class UpdateDbTablesToAddTenantId extends Migration
           if(Config::get('tenant-container.enabled') && !in_array($name, Config::get('tenant-container.ignore_tables'))){
             Schema::table($name, function (Blueprint $t) {
               if (Schema::hasColumn($t->getTable(), 'id')) {
-                $t->uuid('tenant_id')->after('id');
+                $t->uuid('tenant_id')->after('id')->nullable();
               } else {
-                $t->uuid('tenant_id');
+                $t->uuid('tenant_id')->first()->nullable();
               }
             });
           }
