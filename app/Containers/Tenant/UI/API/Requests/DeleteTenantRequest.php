@@ -23,8 +23,8 @@ class DeleteTenantRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+      'permissions' => 'delete-tenant',
+      'roles'       => 'tenant-admin',
     ];
 
     /**

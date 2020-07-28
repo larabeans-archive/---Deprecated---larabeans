@@ -3,6 +3,7 @@
 namespace App\Containers\Tenant\UI\API\Controllers;
 
 use App\Containers\Tenant\Data\Transporters\ActivateTenantTransporter;
+use App\Containers\Tenant\Data\Transporters\CreateTenantTransporter;
 use App\Containers\Tenant\Data\Transporters\DeactivateTenantTransporter;
 use App\Containers\Tenant\UI\API\Requests\ActivateTenantRequest;
 use App\Containers\Tenant\UI\API\Requests\CreateTenantRequest;
@@ -28,7 +29,7 @@ class Controller extends ApiController
      */
     public function createTenant(CreateTenantRequest $request)
     {
-        $tenant = Apiato::call('Tenant@CreateTenantAction', [$request]);
+        $tenant = Apiato::call('Tenant@CreateTenantAction', [ new CreateTenantTransporter($request)]);
 
         return $this->created($this->transform($tenant, TenantTransformer::class));
     }

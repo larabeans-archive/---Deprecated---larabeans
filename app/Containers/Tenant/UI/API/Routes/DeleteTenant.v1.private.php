@@ -4,19 +4,16 @@
  * @apiGroup           Tenant
  * @apiName            deleteTenant
  *
- * @api                {DELETE} /v1/tenants/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/tenants/:id Delete Tenant
+ * @apiDescription     Api end point to delete tenant.
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User With Permissions
  *
- * @apiParam           {String}  parameters here..
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiParam           {String}  id
+ *
+ * @apiUse             TenantSuccessSingleResponse
  */
 
 /** @var Route $router */

@@ -15,7 +15,7 @@ class DeactivateTenantRequest extends Request
      *
      * @var string
      */
-    // protected $transporter = \App\Ship\Transporters\DataTransporter::class;
+  protected $transporter = \App\Containers\Tenant\Data\Transporters\DeactivateTenantTransporter::class;
 
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -23,8 +23,8 @@ class DeactivateTenantRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+      'permissions' => 'edit-tenant',
+      'roles'       => 'tenant-admin',
     ];
 
     /**
@@ -43,7 +43,7 @@ class DeactivateTenantRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        // 'id',
+        'id',
     ];
 
     /**
@@ -52,8 +52,8 @@ class DeactivateTenantRequest extends Request
     public function rules()
     {
         return [
-            // 'id' => 'required',
-            // '{user-input}' => 'required|max:255',
+            'id' => 'required',
+            'status' => 'required'
         ];
     }
 

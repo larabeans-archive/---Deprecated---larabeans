@@ -4,19 +4,15 @@
  * @apiGroup           Tenant
  * @apiName            createTenant
  *
- * @api                {POST} /v1/tenants Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {POST} /v1/tenants Create New Tenant
+ * @apiDescription     Tenant is business Identity, api allows registration of tenant (i.e. business) identities.
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  name
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             TenantSuccessSingleResponse
  */
 
 /** @var Route $router */

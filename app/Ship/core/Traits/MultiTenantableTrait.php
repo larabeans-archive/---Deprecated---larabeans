@@ -3,6 +3,7 @@ namespace Apiato\Core\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Config;
+use Apiato\Core\Traits\MultiTenantableScope;
 
 /**
  * Class HashIdTrait.
@@ -28,11 +29,7 @@ trait MultiTenantableTrait {
     // if user is not administrator - role_id 1
     if (auth()->check()) {
       if (auth()->user()->role_id != 1) {
-        static::addGlobalScope('tenant_id', function (Builder $builder) {
-          if (Config::get('tenant-container.enabled') && !in_array($builder->model->getTable(), Config::get('tenant-container.ignore_tables'))) {
-            $builder->where('tenant_id', Config::get('tenant-container.default_id'));
-          }
-        });
+        static::addGlobalScope(new MultiTenantableScope);
       }
     }
   }

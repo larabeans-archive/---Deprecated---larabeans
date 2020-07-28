@@ -23,8 +23,8 @@ class UpdateTenantRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+      'permissions' => 'edit-tenant',
+      'roles'       => 'tenant-admin',
     ];
 
     /**
@@ -43,7 +43,7 @@ class UpdateTenantRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        // 'id',
+        'id',
     ];
 
     /**
@@ -52,8 +52,8 @@ class UpdateTenantRequest extends Request
     public function rules()
     {
         return [
-            // 'id' => 'required',
-            // '{user-input}' => 'required|max:255',
+            'id' => 'required',
+            'name' => 'required|unique:tenants,name'
         ];
     }
 

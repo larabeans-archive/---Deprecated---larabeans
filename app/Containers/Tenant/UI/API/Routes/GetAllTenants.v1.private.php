@@ -4,19 +4,14 @@
  * @apiGroup           Tenant
  * @apiName            getAllTenants
  *
- * @api                {GET} /v1/tenants Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/tenants Get All Tenant
+ * @apiDescription     Api endpoint to get list of all tenants.
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User With Permissions
  *
- * @apiParam           {String}  parameters here..
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             TenantSuccessSingleResponse
  */
 
 /** @var Route $router */

@@ -2,20 +2,14 @@
 
 namespace App\Containers\Tenant\Actions;
 
+use App\Containers\Tenant\Data\Transporters\CreateTenantTransporter;
 use App\Ship\Parents\Actions\Action;
-use App\Ship\Parents\Requests\Request;
 use Apiato\Core\Foundation\Facades\Apiato;
 
 class CreateTenantAction extends Action
 {
-    public function run(Request $request)
+    public function run(CreateTenantTransporter $data)
     {
-        $data = $request->sanitizeInput([
-            // add your request data here
-        ]);
-
-        $tenant = Apiato::call('Tenant@CreateTenantTask', [$data]);
-
-        return $tenant;
+        return Apiato::call('Tenant@CreateTenantTask', [null, $data->name]);
     }
 }

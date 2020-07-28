@@ -4,19 +4,16 @@
  * @apiGroup           Tenant
  * @apiName            updateTenant
  *
- * @api                {PATCH} /v1/tenants/:id Endpoint title here..
+ * @api                {PATCH} /v1/tenants/:id Update Tenant
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User With Permissions
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  name
+ * @apiParam           {String}  status
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             TenantSuccessSingleResponse
  */
 
 /** @var Route $router */

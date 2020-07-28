@@ -23,8 +23,8 @@ class FindTenantByIdRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+      'permissions' => 'view-tenant',
+      'roles'       => 'tenant-admin',
     ];
 
     /**

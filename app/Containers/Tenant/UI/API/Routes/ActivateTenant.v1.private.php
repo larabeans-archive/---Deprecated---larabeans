@@ -4,19 +4,16 @@
  * @apiGroup           Tenant
  * @apiName            activateTenant
  *
- * @api                {PATCH} /v1/tenant/:id/activate Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {PATCH} /v1/tenant/:id/activate Activate Tenant
+ * @apiDescription     Super admin, can activate any tenant for any possible reason.
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User With Permissions
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id
+ * @apiParam           {boolean}  status
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             TenantSuccessSingleResponse
  */
 
 /** @var Route $router */

@@ -13,16 +13,15 @@ class CreateTenantTransporter extends Transporter
     protected $schema = [
         'type' => 'object',
         'properties' => [
-            // enter all properties here
-
-            // allow for undefined properties
-            // 'additionalProperties' => true,
+            'id',
+            'name',
+            'is_active'
         ],
         'required'   => [
-            // define the properties that MUST be set
+            'name'
         ],
         'default'    => [
-            // provide default values for specific properties here
+          'is_active' => false
         ]
     ];
 }
