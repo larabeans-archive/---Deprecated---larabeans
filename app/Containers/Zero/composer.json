@@ -1,6 +1,7 @@
 {
-  "name": "apiato/zero",
-  "description": "Zero Container for apiato.",
+  "name": "larabeans/zero",
+  "description": "Zero Container for larabeans.",
   "require": {
+
   }
 }

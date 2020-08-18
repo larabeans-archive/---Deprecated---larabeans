@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Doctrine\DBAL\Types\Type as DoctrineType;
 
 class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
 {
@@ -12,9 +11,6 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
      */
     public function up()
     {
-        // Fixes Doctrine Error:
-        // Unknown column type "uuid" requested.
-        DoctrineType::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
 
         // First drop all `id` columns, so they can be re-added with new type.
         Schema::table('oauth_auth_codes', function (Blueprint $table) {
@@ -29,7 +25,7 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update forgien keys
         Schema::table('oauth_auth_codes', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('user_id')->change();
             $table->uuid('client_id')->change();
         });
@@ -40,12 +36,12 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
         });
 
         Schema::table('oauth_clients', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('user_id')->nullable()->change();
         });
 
         Schema::table('oauth_personal_access_clients', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->first();
             $table->uuid('client_id')->change();
         });
     }

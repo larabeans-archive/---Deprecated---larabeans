@@ -14,9 +14,23 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
         $tableNames = config('permission.table_names');
         $foreignKeys = config('permission.foreign_keys');
 
-        // Fixes Doctrine Error:
-        // Unknown column type "uuid" requested.
-        DoctrineType::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+        // First drop `id` reference, used as foregin key.
+        Schema::table('model_has_permissions', function (Blueprint $table) {
+          $table->dropForeign('model_has_permissions_permission_id_foreign');
+        });
+
+        Schema::table('role_has_permissions', function (Blueprint $table) {
+          $table->dropForeign('role_has_permissions_permission_id_foreign');
+        });
+
+      Schema::table('model_has_roles', function (Blueprint $table) {
+        $table->dropForeign('model_has_roles_role_id_foreign');
+      });
+
+      Schema::table('role_has_permissions', function (Blueprint $table) {
+        $table->dropForeign('role_has_permissions_role_id_foreign');
+      });
+
 
         // First drop `id` column, so they can be re-added with new type.
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
@@ -30,11 +44,11 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         // Now Add `id` columns and update foreign keys
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
         });
 
         Schema::table($tableNames['roles'], function (Blueprint $table) {
-          $table->uuid('id')->primary();
+          $table->uuid('id')->primary()->first();
         });
 
         Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) {

@@ -27,8 +27,8 @@ class CreateStoreTables extends Migration
 
             $table->uuid('store_id');
             $table->uuid('user_id');
-            $table->foreign('store_id')->references('id')->on('stores');
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');;
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
 
             $table->timestamps();
             $table->softDeletes();
@@ -39,7 +39,7 @@ class CreateStoreTables extends Migration
 
             $table->uuid('id')->primary();
             $table->uuid('store_id');
-            $table->foreign('store_id')->references('id')->on('stores');
+            // $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');;
             $table->string('name');
 
             $table->timestamps();
@@ -51,7 +51,7 @@ class CreateStoreTables extends Migration
 
             $table->uuid('id')->primary();
             $table->uuid('branch_id');
-            $table->foreign('branch_id')->references('id')->on('store_branches');
+            // $table->foreign('branch_id')->references('id')->on('store_branches')->onDelete('cascade');;
             $table->string('address_line1');
             $table->string('address_line2');
             $table->string('zipcode');
@@ -70,7 +70,7 @@ class CreateStoreTables extends Migration
 
             $table->uuid('id')->primary();
             $table->uuid('store_id');
-            $table->foreign('store_id')->references('id')->on('stores');
+            // $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');;
             $table->string('name');
 
             $table->timestamps();
@@ -84,11 +84,11 @@ class CreateStoreTables extends Migration
      */
     public function down()
     {
-
+        Schema::dropIfExists('stores');
         Schema::dropIfExists('store_owner');
         Schema::dropIfExists('store_branches');
         Schema::dropIfExists('store_locations');
         Schema::dropIfExists('store_departments');
-        Schema::dropIfExists('stores');
+
     }
 }
