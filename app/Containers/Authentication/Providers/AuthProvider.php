@@ -4,11 +4,10 @@ namespace App\Containers\Authentication\Providers;
 
 use Apiato\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
-use App\Containers\Authentication\Models\Client;
-use App\Containers\Authentication\Models\PersonalAccessClient;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
 use Laravel\Passport\Passport;
+use Laravel\Passport\RouteRegistrar;
 use Route;
 
 /**
@@ -51,19 +50,17 @@ class AuthProvider extends ParentAuthProvider
         $this->registerPolicies();
 
         $this->registerPassport();
+        $this->registerPassportApiRoutes();
+        $this->registerPassportWebRoutes();
     }
 
     /**
-     * @void
+     * Register password.
+     * 
+     * @return void
      */
     private function registerPassport()
     {
-        $routeGroupArray = $this->getRouteGroup('/'.Config::get('apiato.api.prefix').'v1');
-
-        Route::group($routeGroupArray, function () {
-            Passport::routes();
-        });
-
         if (Config::get('apiato.api.enabled-implicit-grant')) {
             Passport::enableImplicitGrant();
         }
@@ -71,12 +68,37 @@ class AuthProvider extends ParentAuthProvider
         Passport::tokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.expires-in')));
 
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.refresh-expires-in')));
+    }
 
-      /**
-       *  To use customize Pssport
-       *  Replace increment id to uuid.
-       */
-      Passport::useClientModel(Client::class);
-      Passport::usePersonalAccessClientModel(PersonalAccessClient::class);
+    /**
+     * Register password api routes.
+     * 
+     * @return void
+     */
+    private function registerPassportApiRoutes()
+    {
+        $prefix = Config::get('apiato.api.prefix');
+        $routeGroupArray = $this->getRouteGroup("/{$prefix}v1");
+
+        Route::group($routeGroupArray, function () {
+            Passport::routes(function (RouteRegistrar $router) {
+                $router->forAccessTokens();
+                $router->forTransientTokens();
+                $router->forClients();
+                $router->forPersonalAccessTokens();
+            });
+        });
+    }
+
+    /**
+     * Register password web routes.
+     * 
+     * @return void
+     */
+    private function registerPassportWebRoutes()
+    {
+        Passport::routes(function (RouteRegistrar $router) {
+            $router->forAuthorization();
+        });
     }
 }
