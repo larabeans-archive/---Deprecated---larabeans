@@ -1,8 +1,10 @@
-# Larabeans Core API
+# Larabeans API
 
-<h3 align="center">Build scalable API's faster | With PHP 7.4 and Laravel 7</h3>
+<h3 align="center">Based on Laravel & Apiato | Build scalable API's faster | With PHP 7.4 and Laravel 7</h3>
 
 <a name="Introduction"></a>
+
+**Laravel** Framework for web artisans
 
 **Apiato** is a framework for building scalable and testable API-Centric Applications with PHP, build on top of Laravel.
       
@@ -10,7 +12,8 @@ It is designed to help you build scalable API's faster, by providing tools and f
 
 Apiato uses the best frameworks, tools and conventions in a very creative way, to deliver a rich set of features for a modern PHP Application.
 
-**Why!?** Because setting up a solid API from scratch is time consuming (and of course, time is money!). 
+**Why!?** Because setting up a solid API from scratch is time consuming (and of course, time is money!).
+
 Apiato gives you the core features of robust API's fully documented, for free; so you can focus on writing your business logic, thus deliver faster to your clients.
 
 <details>
@@ -37,13 +40,15 @@ Apiato gives you the core features of robust API's fully documented, for free; s
 
 > Apiato comes with an amazing list of features.
 
-<img src="https://github.com/apiato/documentation/blob/master/images/features.png" alt="Apiato Features"/>
+- Features provide by Apiato
+- Multitenant ready app
 
 
 <a name="Documentation"></a>
 ## Documentation
 
 **Apiato** is built using the new architectural pattern **[Porto](https://github.com/Mahmoudz/Porto)**.
+
 > **Porto SAP** is a modern Software Architectural Pattern, designed to help developers organize their Code in a super maintainable way. It is very helpful for big and long term projects, as they tend to have higher complexity with time.
 
 It's completely **optional** to build your application using the Porto architecture.
