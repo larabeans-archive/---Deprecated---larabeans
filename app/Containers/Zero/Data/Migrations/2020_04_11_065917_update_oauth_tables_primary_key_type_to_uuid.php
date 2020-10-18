@@ -23,7 +23,7 @@ class UpdateOauthTablesPrimaryKeyTypeToUuid extends Migration
           $table->dropColumn('id');
         });
 
-        // Now Add `id` columns and update forgien keys
+        // Now Add `id` columns and update foreign keys
         Schema::table('oauth_auth_codes', function (Blueprint $table) {
             $table->uuid('id')->primary()->first();
             $table->uuid('user_id')->change();

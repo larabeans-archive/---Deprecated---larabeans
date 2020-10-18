@@ -11,7 +11,7 @@ class UpdateUserContainerTablesPrimaryKeyTypeToUuid extends Migration
      */
     public function up()
     {
-        // First drop `id` reference, used as foregin key.
+        // First drop `id` reference, used as foreign key.
         Schema::table('payment_accounts', function (Blueprint $table) {
           $table->dropForeign('payment_accounts_user_id_foreign');
         });
@@ -20,7 +20,7 @@ class UpdateUserContainerTablesPrimaryKeyTypeToUuid extends Migration
           $table->dropForeign('payment_transactions_user_id_foreign');
         });
 
-        // First drop `id` column, so they can be re-added with new type.
+        // Then drop `id` column, so they can be re-added with new type.
         Schema::table('users', function (Blueprint $table) {
           $table->dropColumn('id');
         });
@@ -29,6 +29,9 @@ class UpdateUserContainerTablesPrimaryKeyTypeToUuid extends Migration
         Schema::table('users', function (Blueprint $table) {
           $table->uuid('id')->primary()->first();
         });
+
+        // Note: Dropped foreign keys indexes re-add in migration
+        // 2020_07_05_094857_update_payment_container_tables_primary_key_type_to_uuid.php
     }
 
     /**
