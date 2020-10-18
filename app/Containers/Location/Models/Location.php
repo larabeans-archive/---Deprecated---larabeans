@@ -31,4 +31,15 @@ class Location extends Model
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'locations';
+
+
+    /**
+     * Get the locatable entity that the location belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function locatable()
+    {
+      return $this->morphTo();
+    }
 }

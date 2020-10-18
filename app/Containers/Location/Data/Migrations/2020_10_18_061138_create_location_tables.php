@@ -20,10 +20,11 @@ class CreateLocationTables extends Migration
             $table->string('city');
             $table->string('state_id');
             $table->string('country_id');
-            $table->string('pos_code');
-
+            $table->string('post_code');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
-            //$table->softDeletes();
+            $table->softDeletes();
         });
     }
 
