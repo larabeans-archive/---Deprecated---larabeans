@@ -14,25 +14,25 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
         $tableNames = config('permission.table_names');
         $foreignKeys = config('permission.foreign_keys');
 
-        // First drop `id` reference, used as foregin key.
-        Schema::table('model_has_permissions', function (Blueprint $table) {
+        // First drop `id` reference, used as foreign key
+        Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) {
           $table->dropForeign('model_has_permissions_permission_id_foreign');
         });
 
-        Schema::table('role_has_permissions', function (Blueprint $table) {
+        Schema::table($tableNames['role_has_permissions'], function (Blueprint $table) {
           $table->dropForeign('role_has_permissions_permission_id_foreign');
         });
 
-      Schema::table('model_has_roles', function (Blueprint $table) {
-        $table->dropForeign('model_has_roles_role_id_foreign');
-      });
+        Schema::table($tableNames['model_has_roles'], function (Blueprint $table) {
+          $table->dropForeign('model_has_roles_role_id_foreign');
+        });
 
-      Schema::table('role_has_permissions', function (Blueprint $table) {
-        $table->dropForeign('role_has_permissions_role_id_foreign');
-      });
+        Schema::table($tableNames['role_has_permissions'], function (Blueprint $table) {
+          $table->dropForeign('role_has_permissions_role_id_foreign');
+        });
 
 
-        // First drop `id` column, so they can be re-added with new type.
+        // Now drop `id` column, so they can be re-added with new type.
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
           $table->dropColumn('id');
         });
@@ -53,16 +53,24 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) {
           $table->uuid('permission_id')->change();
+
+          $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
         });
 
         Schema::table($tableNames['model_has_roles'], function (Blueprint $table) {
           $table->uuid('role_id')->change();
           $table->uuid('model_id')->change();
+
+          $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
 
         Schema::table($tableNames['role_has_permissions'], function (Blueprint $table) {
           $table->uuid('permission_id')->change();
           $table->uuid('role_id')->change();
+
+          $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+          $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+
         });
     }
 
