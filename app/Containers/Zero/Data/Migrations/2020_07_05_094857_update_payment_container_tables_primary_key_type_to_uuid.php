@@ -24,11 +24,15 @@ class UpdatePaymentContainerTablesPrimaryKeyTypeToUuid extends Migration
         Schema::table('payment_accounts', function (Blueprint $table) {
           $table->uuid('id')->primary()->first();
           $table->uuid('user_id')->change();
+
+          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('payment_transactions', function (Blueprint $table) {
           $table->uuid('id')->primary()->first();
           $table->uuid('user_id')->change();
+
+          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
