@@ -14,10 +14,16 @@ class CreateLocationTables extends Migration
         Schema::create('locations', function (Blueprint $table) {
 
             $table->uuid('id')->primary('id');
+            $table->uuidMorphs('locatable');
+            $table->string('address_line_1');
+            $table->string('address_line_2');
+            $table->string('city');
+            $table->string('state_id');
+            $table->string('country_id');
+            $table->string('pos_code');
 
             $table->timestamps();
             //$table->softDeletes();
-
         });
     }
 
