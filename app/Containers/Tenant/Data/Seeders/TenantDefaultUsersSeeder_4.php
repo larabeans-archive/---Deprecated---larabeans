@@ -10,11 +10,23 @@ class TenantDefaultUsersSeeder_4 extends Seeder
     public function run()
     {
       // Default Store Admin (with their roles) ---------------------------------------------
-      Apiato::call('User@CreateUserByCredentialsTask', [
+      $user = Apiato::call('User@CreateUserByCredentialsTask', [
         $isClient = false,
         'tenant-admin@larabeans.com',
         'tenant',
         'Tenant Admin',
       ])->assignRole(Apiato::call('Authorization@FindRoleTask', ['tenant-admin']));
+
+      // Create use location
+      $user->locations()->create([
+        'address_line_1' => 'street #3',
+        'address_line_2' => 'House #23',
+        'city' => 'Islamabad',
+        'state_id' => 'Islamabad',
+        'country_id' => 'pk',
+        'post_code' => '0213 566',
+        'latitude' => '0.899656565',
+        'longitude' => '0.323565666',
+      ]);
     }
 }

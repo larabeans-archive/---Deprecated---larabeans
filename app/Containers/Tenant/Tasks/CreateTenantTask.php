@@ -23,13 +23,13 @@ class CreateTenantTask extends Task
     public function run(
       string $id = null,
       string $name,
-      bool $isActive = false
+      bool $isActive = null
     ): Tenant
     {
         $data = [
           'slug' => Str::slug($name),
           'name' => $name,
-          'is_active' => $isActive
+          'is_active' => $isActive ? true : false
         ];
 
         if (!is_null($id)) {
