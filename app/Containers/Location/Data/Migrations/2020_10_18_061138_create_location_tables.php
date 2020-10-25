@@ -12,7 +12,6 @@ class CreateLocationTables extends Migration
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-
             $table->uuid('id')->primary('id');
             $table->uuid('tenant_id')->index('tenant_id_index');
             $table->uuidMorphs('locatable');
@@ -25,7 +24,7 @@ class CreateLocationTables extends Migration
             $table->string('latitude')->nullable()->default(null);
             $table->string('longitude')->nullable()->default(null);
             $table->timestamps();
-            $table->softDeletes();
+            //$table->softDeletes();
         });
     }
 
