@@ -45,8 +45,10 @@ return [
       "model_has_permissions",
       "model_has_roles",
 
+      "countries",
+      "states",
+
       "tenants",
-      "store_owner"
     ]
 
 
