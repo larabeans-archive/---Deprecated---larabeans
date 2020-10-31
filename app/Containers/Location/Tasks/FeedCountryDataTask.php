@@ -19,13 +19,13 @@ class FeedCountryDataTask extends Task
 
     public function run( Array $countries)
     {
-        foreach ($countries as $country){
-            try {
-                return $this->repository->create($country);
+        try {
+            foreach ($countries as $country) {
+                $this->repository->create($country);
             }
-            catch (Exception $exception) {
-                throw new CreateResourceFailedException();
-            }
+        }
+        catch (Exception $exception) {
+            throw new CreateResourceFailedException();
         }
     }
 }
