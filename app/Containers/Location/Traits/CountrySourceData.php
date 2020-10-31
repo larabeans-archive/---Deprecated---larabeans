@@ -1,7 +1,15 @@
 <?php
-namespace App\Containers\Location\Data\Seeders;
+namespace App\Containers\Location\Traits;
 
-/*******************************************************************************************************
+/**
+ * Trait CountrySourceData
+ * @package App\Containers\Location\Traits
+ *
+ * Used CountryArray, and converted to trait with few minor changes
+ * @author: Syed Ali Kazmi <ali@kazmi.me>
+ */
+
+/**
  * class CountryArray
  * returns array of countries, can return flat array using get() function and 2d array with get2d()
  * it can provide following information related to  the country
@@ -18,10 +26,14 @@ namespace App\Containers\Location\Data\Seeders;
  * Phone : +91 9890103122
  * License: AGPL3, You should keep Package name, Class name, Author name, Email and website credits.
  * Copyrights (C) Sameer Shelavale
- *******************************************************************************************************/
+ */
 
-class CountriesArray{
+trait CountrySourceData {
 
+  /**
+   * iso countries
+   * @var array
+   */
   public static $countries = array(
     "AF" => array( 'alpha2'=>'AF', 'alpha3'=>'AFG', 'num'=>'004', 'isd'=> '93', "name" => "Afghanistan", "continent" => "Asia", ),
     "AX" => array( 'alpha2'=>'AX', 'alpha3'=>'ALA', 'num'=>'248', 'isd'=> '358', "name" => "Åland Islands", "continent" => "Europe"),
@@ -283,22 +295,20 @@ class CountriesArray{
   );
 
   /**
-   * CountriesArray constructor.
-   * @param boolean $iso
-   * @author Paul Bönisch - <paul.boenisch@umwerk.net>
+   * Merge Iso and Non Iso Countries.
+   * @author Syed Ali Murtaza - <ali@kazmi.me>
    */
-  public function __construct($iso)
+  public function mergeNonIso()
   {
-    if(!$iso){
-      self::$countries = array_merge(self::$countries, self::$countries_non_iso);
-    }
+    self::$countries = array_merge(self::$countries, self::$countries_non_iso);
   }
 
   /**
    * Returns countries array depending on iso flag
    * @param bool $iso
-   * @return array
    * @author Paul Bönisch - <paul.boenisch@umwerk.net>
+   *
+   * @return array
    */
   public static function getCountries($iso = true){
     $result = self::$countries;
@@ -310,21 +320,11 @@ class CountriesArray{
   }
 
   /**
-   * Returns instance of ContriesArray with $iso property according to $value parameter
-   * @param $value
-   * @return CountriesArray
-   * @author Paul Bönisch - <paul.boenisch@umwerk.net>
-   */
-  public static function iso($value){
-    return new CountriesArray($value);
-  }
-
-  /*
    * function get()
-   * @param $key - key field for the array of countries, set it to null if you want array without named indices
+   * @param $keyField - key field for the array of countries, set it to null if you want array without named indices
    * @param $requestedField - name of the field to be fetched in value part of array
-   * @returns array contained key=>value pairs of the requested key and field
    *
+   * @return array contained key=>value pairs of the requested key and field
    */
   public static function get( $keyField = 'alpha2', $requestedField = 'name' ){
     $supportedFields = array( 'alpha2', 'alpha3', 'num', 'isd', 'name', 'continent' );
@@ -350,13 +350,12 @@ class CountriesArray{
     return $result;
   }
 
-
-  /*
+  /**
    * function get2d() returns 2d array of countries
-   * @param $key - key field for the array of countries, set it to null if you want array without named indices
+   * @param $keyField - key field for the array of countries, set it to null if you want array without named indices
    * @param $requestedFields - array of name of the fields to be fetched in value part of array
-   * @returns array contained key=>value pairs of the requested key and field
    *
+   * @return array contained key=>value pairs of the requested key and field
    */
   public static function get2d( $keyField = 'alpha2', $requestedFields = array( 'alpha2', 'alpha3', 'num', 'isd', 'name', 'continent' ) ){
     $supportedFields = array( 'alpha2', 'alpha3', 'num', 'isd', 'name', 'continent' );
@@ -392,16 +391,16 @@ class CountriesArray{
     return $result;
   }
 
-  /*
-  * function getFromContinent()
-  * @param $key - key field for the array of countries, set it to null if you want array without named indices
-  * @param $requestedField - name of the field to be fetched in value part of array
-  * @param $continent - name of continent to use as filter
-  * @returns array contained key=>value pairs of the requested key and field
-  * Works exactly as get() above
-  * But takes an extra param to enable filtering by continent
-  *
-  */
+  /**
+   * Works exactly as get() above
+   * But takes an extra param to enable filtering by continent
+   *
+   * @param $keyField - key field for the array of countries, set it to null if you want array without named indices
+   * @param $requestedField - name of the field to be fetched in value part of array
+   * @param $continent - name of continent to use as filter
+   *
+   * @return array contained key=>value pairs of the requested key and field
+   */
   public static function getFromContinent( $keyField = 'alpha2', $requestedField = 'name', $continent=null ) {
     $supportedFields = array( 'alpha2', 'alpha3', 'num', 'isd', 'name', 'continent' );
     $supportedContinents = array( 'Africa', 'Antarctica', 'Asia', 'Europe', 'North America', 'Oceania', 'South America' );
