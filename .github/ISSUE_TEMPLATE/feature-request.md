@@ -1,7 +1,7 @@
 ---
 name: Feature Request
 about: New Feature Request
-title: 'Add/Implement :functionality: in :section: '
+title: "{Container Name}: Feature tile here .. "
 labels: Feature
 assignees: smurtazakazmi
 
