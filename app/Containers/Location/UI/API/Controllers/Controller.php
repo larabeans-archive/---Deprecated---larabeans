@@ -19,17 +19,6 @@ use Apiato\Core\Foundation\Facades\Apiato;
 class Controller extends ApiController
 {
     /**
-     * @param CreateLocationRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function createLocation(CreateLocationRequest $request)
-    {
-        $location = Apiato::call('Location@CreateLocationAction', [$request]);
-
-        return $this->created($this->transform($location, LocationTransformer::class));
-    }
-
-    /**
      * @param FindLocationByIdRequest $request
      * @return array
      */
