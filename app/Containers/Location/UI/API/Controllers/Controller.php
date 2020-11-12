@@ -29,6 +29,17 @@ class Controller extends ApiController
         return $this->transform($location, LocationTransformer::class);
     }
 
+  /**
+   * @param FindLocationByCriteriaRequest $request
+   * @return array
+   */
+  public function findLocationByCriteria(FindLocationByCriteriaRequest $request)
+  {
+    $location = Apiato::call('Location@FindLocationByIdAction', [$request]);
+
+    return $this->transform($location, LocationTransformer::class);
+  }
+
     /**
      * @param GetAllLocationsRequest $request
      * @return array
