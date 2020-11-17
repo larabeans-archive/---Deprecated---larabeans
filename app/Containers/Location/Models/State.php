@@ -4,7 +4,7 @@ namespace App\Containers\Location\Models;
 
 use App\Ship\Parents\Models\Model;
 
-class Country extends Model
+class State extends Model
 {
     protected $fillable = [
 
@@ -30,13 +30,13 @@ class Country extends Model
     /**
      * A resource key to be used by the the JSON API Serializer responses.
      */
-    protected $resourceKey = 'countries';
+    protected $resourceKey = 'states';
 
-    public function states(){
-        return $this->hasMany( 'App\Containers\Location\Models\State', 'country_id', 'id');
+    public function country() {
+        return $this->belongsTo('App\Containers\Location\Models\Country', 'country_id', 'id');
     }
 
     public function cities() {
-        return $this->hasMany('App\Containers\Location\Models\City', 'country_id', 'id');
+        return $this->hasMany('App\Containers\Location\Models\City', 'state_id', 'id');
     }
 }
