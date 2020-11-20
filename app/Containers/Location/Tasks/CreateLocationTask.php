@@ -22,9 +22,9 @@ class CreateLocationTask extends Task
         string $locatableId = null,
         string $addressLine1 = null,
         string $addressLine2 = null,
-        string $city = null,
-        string $stateId = null,
-        string $countryId = null,
+        int $city = null,
+        int $stateId = null,
+        int $countryId = null,
         string $postCode = null,
         string $latitude = null,
         string $longitude = null
