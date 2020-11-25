@@ -17,30 +17,18 @@ class TenantDefaultUsersSeeder_4 extends Seeder
           'Tenant Admin',
         ])->assignRole(Apiato::call('Authorization@FindRoleTask', ['tenant-admin']));
 
-        // Create use location, one way
-        $location = Apiato::call('Location@CreateLocationTask', [
+        // User location
+        Apiato::call('Location@CreateLocationTask', [
             get_class($user),
             $user->id,
-            'street #3',
-            'House #23',
-            'Islamabad',
-            'Islamabad',
-            'pk',
+            'House #335, Street #17',
+            'Bla Bla Town, Phase 1',
+            85475, // Islamabad
+            3169,  // Islamabad Capital Territory
+            167,   // Pakistan
             '0213 566',
             '0.899656565',
             '0.323565666'
         ]);
-
-        // Create use location, other way
-        // $user->locations()->create([
-        //   'address_line_1' => 'street #3',
-        //   'address_line_2' => 'House #23',
-        //   'city' => 'Islamabad',
-        //   'state_id' => 'Islamabad',
-        //   'country_id' => 'pk',
-        //   'post_code' => '0213 566',
-        //   'latitude' => '0.899656565',
-        //   'longitude' => '0.323565666',
-        // ]);
     }
 }
