@@ -53,7 +53,7 @@ class UpdateAuthorizationContainerTablesPrimaryKeyTypeToUuid extends Migration
 
         Schema::table($tableNames['model_has_permissions'], function (Blueprint $table) {
           $table->uuid('permission_id')->change();
-
+          $table->uuid('model_id')->change();
           $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
         });
 

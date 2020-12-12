@@ -4,6 +4,7 @@ namespace App\Containers\User\Models;
 
 use App\Containers\Authorization\Traits\AuthenticationTrait;
 use App\Containers\Authorization\Traits\AuthorizationTrait;
+use App\Containers\Location\Traits\HasLocations;
 use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
@@ -22,6 +23,7 @@ class User extends UserModel implements ChargeableInterface
     use AuthorizationTrait;
     use AuthenticationTrait;
     use Notifiable;
+    use HasLocations;
 
     /**
      * The database table used by the model.
