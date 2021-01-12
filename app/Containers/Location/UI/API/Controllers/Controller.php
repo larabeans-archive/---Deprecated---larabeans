@@ -19,6 +19,17 @@ use Apiato\Core\Foundation\Facades\Apiato;
 class Controller extends ApiController
 {
     /**
+     * @param CreateLocationRequest $request
+     * @return  array
+     */
+    public function createAdmin(CreateLocationRequest $request)
+    {
+      $location = Apiato::call('Location@CreateLocationAction', [$request]);
+
+      return $this->transform($location, LocationTransformer::class);
+    }
+
+    /**
      * @param FindLocationByIdRequest $request
      * @return array
      */
@@ -29,11 +40,11 @@ class Controller extends ApiController
         return $this->transform($location, LocationTransformer::class);
     }
 
-  /**
-   * @param FindLocationByCriteriaRequest $request
-   * @return array
-   */
-  public function findLocationByCriteria(FindLocationByCriteriaRequest $request)
+    /**
+     * @param FindLocationByCriteriaRequest $request
+     * @return array
+     */
+    public function findLocationByCriteria(FindLocationByCriteriaRequest $request)
   {
     $location = Apiato::call('Location@FindLocationByIdAction', [$request]);
 
