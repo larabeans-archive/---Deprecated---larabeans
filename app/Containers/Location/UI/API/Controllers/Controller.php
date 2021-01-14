@@ -7,6 +7,7 @@ use App\Containers\Location\UI\API\Requests\DeleteLocationRequest;
 use App\Containers\Location\UI\API\Requests\GetAllLocationsRequest;
 use App\Containers\Location\UI\API\Requests\FindLocationByIdRequest;
 use App\Containers\Location\UI\API\Requests\UpdateLocationRequest;
+use App\Containers\Location\UI\API\Transformers\CountryTransformer;
 use App\Containers\Location\UI\API\Transformers\LocationTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use Apiato\Core\Foundation\Facades\Apiato;
@@ -45,11 +46,11 @@ class Controller extends ApiController
      * @return array
      */
     public function findLocationByCriteria(FindLocationByCriteriaRequest $request)
-  {
-    $location = Apiato::call('Location@FindLocationByIdAction', [$request]);
+    {
+      $location = Apiato::call('Location@FindLocationByIdAction', [$request]);
 
-    return $this->transform($location, LocationTransformer::class);
-  }
+      return $this->transform($location, LocationTransformer::class);
+    }
 
     /**
      * @param GetAllLocationsRequest $request
@@ -82,5 +83,16 @@ class Controller extends ApiController
         Apiato::call('Location@DeleteLocationAction', [$request]);
 
         return $this->noContent();
+    }
+
+    /**
+     * @param GetAllCountriesRequest $request
+     * @return array
+     */
+    public function getAllCountries(GetAllCountriesRequest $request)
+    {
+      $countries = Apiato::call('Location@GetAllCountriesAction', [$request]);
+
+      return $this->transform($countries, CountryTransformer::class);
     }
 }
