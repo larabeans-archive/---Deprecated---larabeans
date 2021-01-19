@@ -18,7 +18,7 @@ trait MultiTenantableTrait {
       if(Config::get('tenant-container.enabled') && !in_array($model->getTable(), Config::get('tenant-container.ignore_tables'))){
         if(!$model->tenant_id) {
           if (auth()->check()) {
-            $model->tenant_id = auth()->tenant_id();
+            $model->tenant_id = auth()->user()->tenant_id;
           } else {
             $model->tenant_id = Config::get('tenant-container.default_id');
           }
