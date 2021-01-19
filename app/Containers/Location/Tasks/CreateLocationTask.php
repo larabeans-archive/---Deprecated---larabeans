@@ -36,7 +36,7 @@ class CreateLocationTask extends Task
           'locatable_id'    => $locatableId,
           'address_line_1' => $addressLine1,
           'address_line_2' => $addressLine2,
-          'city'           => $city,
+          'city_id'        => $city,
           'state_id'       => $stateId,
           'country_id'     => $countryId,
           'post_code'      => $postCode,
