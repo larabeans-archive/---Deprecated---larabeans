@@ -3,6 +3,8 @@
 namespace App\Containers\Authentication\Providers;
 
 use Apiato\Core\Loaders\RoutesLoaderTrait;
+use App\Containers\Authentication\Models\Client;
+use App\Containers\Authentication\Models\PersonalAccessClient;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
@@ -56,7 +58,7 @@ class AuthProvider extends ParentAuthProvider
 
     /**
      * Register password.
-     * 
+     *
      * @return void
      */
     private function registerPassport()
@@ -68,11 +70,18 @@ class AuthProvider extends ParentAuthProvider
         Passport::tokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.expires-in')));
 
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.refresh-expires-in')));
+
+        /**
+         *  To use customize Pssport
+         *  Replace increment id to uuid.
+         */
+        Passport::useClientModel(Client::class);
+        Passport::usePersonalAccessClientModel(PersonalAccessClient::class);
     }
 
     /**
      * Register password api routes.
-     * 
+     *
      * @return void
      */
     private function registerPassportApiRoutes()
@@ -92,7 +101,7 @@ class AuthProvider extends ParentAuthProvider
 
     /**
      * Register password web routes.
-     * 
+     *
      * @return void
      */
     private function registerPassportWebRoutes()

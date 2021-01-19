@@ -47,26 +47,26 @@ class CountryStateCitySeeder extends Seeder
             ]) ;
         }
 
-//        foreach ($states as $state) {
-//            $state = (object) $state;
-//            Apiato::call('Location@CreateStateTask', [
-//                $state->id ? $state->id : '',
-//                $state->country_id ? $state->country_id : '',
-//                $state->name ? $state->name : '',
-//                $state->state_code ? $state->state_code : '',
-//            ]) ;
-//        }
+        foreach ($states as $state) {
+            $state = (object) $state;
+            Apiato::call('Location@CreateStateTask', [
+                $state->id ? $state->id : '',
+                $state->country_id ? $state->country_id : '',
+                $state->name ? $state->name : '',
+                $state->state_code ? $state->state_code : '',
+            ]) ;
+        }
 
-//        foreach ($cities as $city) {
-//            $city = (object) $city;
-//            Apiato::call('Location@CreateCityTask', [
-//                $city->id ? $city->id : '',
-//                $city->country_id ? $city->country_id : '',
-//                $city->state_id ? $city->state_id : '',
-//                $city->name ? $city->name : '',
-//                $city->latitude ? $city->latitude : '',
-//                $city->longitude ? $city->longitude : '',
-//            ]) ;
-//        }
+        foreach ($cities as $city) {
+            $city = (object) $city;
+            Apiato::call('Location@CreateCityTask', [
+                $city->id ? $city->id : '',
+                $city->country_id ? $city->country_id : '',
+                $city->state_id ? $city->state_id : '',
+                $city->name ? $city->name : '',
+                $city->latitude ? $city->latitude : '',
+                $city->longitude ? $city->longitude : '',
+            ]) ;
+        }
     }
 }

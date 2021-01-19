@@ -17,9 +17,9 @@ class CreateLocationTables extends Migration
             $table->uuidMorphs('locatable');
             $table->string('address_line_1');
             $table->string('address_line_2')->nullable()->default(null);
-            $table->int('city_id')->index('city_id_index');
-            $table->int('state_id')->index('state_id_index');
-            $table->int('country_id')->index('country_id_index');
+            $table->integer('city_id')->index('city_id_index');
+            $table->integer('state_id')->index('state_id_index');
+            $table->integer('country_id')->index('country_id_index');
             $table->string('post_code')->nullable()->default(null);
             $table->string('latitude')->nullable()->default(null);
             $table->string('longitude')->nullable()->default(null);
