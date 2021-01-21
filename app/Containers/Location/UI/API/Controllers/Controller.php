@@ -5,9 +5,11 @@ namespace App\Containers\Location\UI\API\Controllers;
 use App\Containers\Location\Tasks\FindStatesByCountryIdTask;
 use App\Containers\Location\UI\API\Requests\CreateLocationRequest;
 use App\Containers\Location\UI\API\Requests\DeleteLocationRequest;
+use App\Containers\Location\UI\API\Requests\FindCitiesByStateIdRequest;
 use App\Containers\Location\UI\API\Requests\GetAllLocationsRequest;
 use App\Containers\Location\UI\API\Requests\FindLocationByIdRequest;
 use App\Containers\Location\UI\API\Requests\UpdateLocationRequest;
+use App\Containers\Location\UI\API\Transformers\CityTransformer;
 use App\Containers\Location\UI\API\Transformers\CountryTransformer;
 use App\Containers\Location\UI\API\Transformers\LocationTransformer;
 use App\Ship\Parents\Controllers\ApiController;
@@ -106,5 +108,16 @@ class Controller extends ApiController
       $location = Apiato::call('Location@FindStatesByCountryIdAction', [$request]);
 
       return $this->transform($location, LocationTransformer::class);
+    }
+
+    /**
+     * @param FindCitiesByStateIdRequest $request
+     * @return array
+     */
+    public function findCitiesByStateId(FindCitiesByStateIdRequest $request)
+    {
+      $cities = Apiato::call('Location@FindCitiesByStateIdAction', [$request]);
+
+      return $this->transform($cities, CityTransformer::class);
     }
 }
