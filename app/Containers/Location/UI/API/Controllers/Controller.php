@@ -26,7 +26,7 @@ class Controller extends ApiController
      * @param CreateLocationRequest $request
      * @return  array
      */
-    public function createAdmin(CreateLocationRequest $request)
+    public function createLocation(CreateLocationRequest $request)
     {
       $location = Apiato::call('Location@CreateLocationAction', [$request]);
 
