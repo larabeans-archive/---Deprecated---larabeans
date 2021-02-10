@@ -2,17 +2,17 @@
 
 namespace App\Containers\Location\Tasks;
 
-use App\Containers\Location\Data\Repositories\CountryRepository;
+use App\Containers\Location\Data\Repositories\CityRepository;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class FindCountryByIdTask extends Task
+class FindStateCitiesTask extends Task
 {
 
     protected $repository;
 
-    public function __construct(CountryRepository $repository)
+    public function __construct(CityRepository $repository)
     {
         $this->repository = $repository;
     }

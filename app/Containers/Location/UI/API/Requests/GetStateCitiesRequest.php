@@ -5,9 +5,9 @@ namespace App\Containers\Location\UI\API\Requests;
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class FindCitiesByStateIdRequest.
+ * Class FindStateCitiesRequest.
  */
-class FindCitiesByStateIdRequest extends Request
+class FindStateCitiesRequest extends Request
 {
 
     /**
@@ -15,7 +15,7 @@ class FindCitiesByStateIdRequest extends Request
      *
      * @var string
      */
-    protected $transporter = \App\Containers\Location\Data\Transporters\FindCitiesByStateIdTransporter::class;
+    // protected $transporter = \App\Containers\Location\Data\Transporters\FindCitiesByStateIdTransporter::class;
 
     /**
      * Define which Roles and/or Permissions has access to this request.

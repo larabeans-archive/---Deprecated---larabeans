@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup           Location
- * @apiName            findCitiesByStateId
+ * @apiName            getStateCities
  *
- * @api                {GET} /v1/location/state/:id/cities Endpoint title here..
+ * @api                {GET} /v1/states/:id/cities Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -20,9 +20,9 @@
  */
 
 /** @var Route $router */
-$router->get('location/state/{id}/cities', [
-    'as' => 'api_location_find_cities_by_state_id',
-    'uses'  => 'Controller@findCitiesByStateId',
+$router->get('states/{id}/cities', [
+    'as' => 'api_get_state_cities',
+    'uses'  => 'Controller@getStateCities',
     'middleware' => [
       'auth:api',
     ],
