@@ -7,7 +7,7 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class FindCountryByIdTask extends Task
+class FindCountryTask extends Task
 {
 
     protected $repository;

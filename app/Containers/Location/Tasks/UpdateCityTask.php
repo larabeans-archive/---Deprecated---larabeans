@@ -3,11 +3,11 @@
 namespace App\Containers\Location\Tasks;
 
 use App\Containers\Location\Data\Repositories\CityRepository;
-use App\Ship\Exceptions\NotFoundException;
+use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class GetStateCitiesTask extends Task
+class UpdateCityTask extends Task
 {
 
     protected $repository;
@@ -17,13 +17,13 @@ class GetStateCitiesTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id)
+    public function run($id, array $data)
     {
         try {
-            return $this->repository->find($id);
+            return $this->repository->update($data, $id);
         }
         catch (Exception $exception) {
-            throw new NotFoundException();
+            throw new UpdateResourceFailedException();
         }
     }
 }

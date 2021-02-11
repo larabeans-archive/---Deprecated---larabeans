@@ -7,7 +7,7 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class FindMobileLocationByIdTask extends Task
+class FindMobileLocationTask extends Task
 {
 
     protected $repository;

@@ -7,7 +7,7 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 
-class FindStateByIdTask extends Task
+class FindStateTask extends Task
 {
 
     protected $repository;

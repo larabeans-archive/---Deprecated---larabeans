@@ -3,11 +3,9 @@
 namespace App\Containers\Location\Tasks;
 
 use App\Containers\Location\Data\Repositories\CityRepository;
-use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
-use Exception;
 
-class GetStateCitiesTask extends Task
+class GetAllCitiesTask extends Task
 {
 
     protected $repository;
@@ -17,13 +15,8 @@ class GetStateCitiesTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id)
+    public function run()
     {
-        try {
-            return $this->repository->find($id);
-        }
-        catch (Exception $exception) {
-            throw new NotFoundException();
-        }
+        return $this->repository->paginate();
     }
 }
