@@ -4,7 +4,7 @@ namespace App\Containers\Location\Traits;
 
 use App\Containers\Location\Models\Location;
 
-trait HasLocations
+trait HasMobileLocation
 {
 
   /**
