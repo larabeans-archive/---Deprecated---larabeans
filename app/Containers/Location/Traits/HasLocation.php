@@ -4,11 +4,11 @@ namespace App\Containers\Location\Traits;
 
 use App\Containers\Location\Models\Location;
 
-trait HasMobileLocation
+trait HasLocation
 {
 
   /**
-   * Get the entity's locations.
+   * Get the entity's location.
    *
    * @return \Illuminate\Database\Eloquent\Relations\MorphOne
    */
