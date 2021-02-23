@@ -4,19 +4,15 @@
  * @apiGroup           Location
  * @apiName            deleteLocation
  *
- * @api                {DELETE} /v1/locations/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/locations/:id Delete a Location
+ * @apiDescription     Delete Location by Id
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id Location id
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             LocationSuccessSingleResponse
  */
 
 /** @var Route $router */

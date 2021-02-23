@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup           Location
- * @apiName            getAllCountries
+ * @apiName            findState
  *
- * @api                {GET} /v1/countries Endpoint title here..
+ * @api                {GET} /v1/states/:id Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -12,13 +12,13 @@
  *
  * @apiParam           {String}  parameters here..
  *
- * @apiUse             GeneralSuccessMultipleResponse
+ * @apiUse             StateSuccessSingleResponse
  */
 
 /** @var Route $router */
-$router->get('countries', [
-    'as' => 'api_location_get_all_countries',
-    'uses'  => 'Controller@getAllCountries',
+$router->get('states/{id}', [
+    'as' => 'api_location_find_state',
+    'uses'  => 'Controller@findState',
     'middleware' => [
       'auth:api',
     ],

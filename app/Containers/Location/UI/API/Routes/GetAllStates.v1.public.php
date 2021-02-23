@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup           Location
- * @apiName            getAllCountries
+ * @apiName            getAllStates
  *
- * @api                {GET} /v1/countries Endpoint title here..
+ * @api                {GET} /v1/states Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -16,9 +16,9 @@
  */
 
 /** @var Route $router */
-$router->get('countries', [
-    'as' => 'api_location_get_all_countries',
-    'uses'  => 'Controller@getAllCountries',
+$router->get('states', [
+    'as' => 'api_location_get_all_states',
+    'uses'  => 'Controller@getAllStates',
     'middleware' => [
       'auth:api',
     ],

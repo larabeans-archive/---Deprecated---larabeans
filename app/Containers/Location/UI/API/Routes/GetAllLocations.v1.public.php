@@ -4,19 +4,21 @@
  * @apiGroup           Location
  * @apiName            getAllLocations
  *
- * @api                {GET} /v1/locations Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/locations Get all Locations
+ * @apiDescription     Get all locations,query parameters supporting search criteria available here
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  filter include columns e.g. id;name
+ * @apiParam           {String}  search search columns e.g. name:search-users
+ * @apiParam           {String}  orderBy name of column e.g. id
+ * @apiParam           {String}  sortedBy asc or desc
+ * @apiParam           {Integer}  page page number
+ * @apiParam           {String}  include country,state,city
+ * @apiParam           {Integer}  limit records per page
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             GeneralSuccessMultipleResponse
  */
 
 /** @var Route $router */

@@ -4,19 +4,22 @@
  * @apiGroup           Location
  * @apiName            updateLocation
  *
- * @api                {PATCH} /v1/locations/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {PATCH} /v1/locations/:id Update a location
+ * @apiDescription     Update location by id
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated User
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  address_line_1
+ * @apiParam           {String}  address_line_2
+ * @apiParam           {String}  country_id
+ * @apiParam           {String}  state_id
+ * @apiParam           {String}  city_id
+ * @apiParam           {String}  post_code
+ * @apiParam           {String}  latitude
+ * @apiParam           {String}  longitude
  *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             LocationSuccessSingleResponse
  */
 
 /** @var Route $router */

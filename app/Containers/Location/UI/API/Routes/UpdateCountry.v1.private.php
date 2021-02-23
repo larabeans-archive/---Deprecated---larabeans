@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup           Location
- * @apiName            getAllCountries
+ * @apiName            updateCountry
  *
- * @api                {GET} /v1/countries Endpoint title here..
+ * @api                {PUT} /v1/countries/:id Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -12,13 +12,13 @@
  *
  * @apiParam           {String}  parameters here..
  *
- * @apiUse             GeneralSuccessMultipleResponse
+ * @apiUse             CountrySuccessSingleResponse
  */
 
 /** @var Route $router */
-$router->get('countries', [
-    'as' => 'api_location_get_all_countries',
-    'uses'  => 'Controller@getAllCountries',
+$router->put('countries/{id}', [
+    'as' => 'api_location_update_country',
+    'uses'  => 'Controller@updateCountry',
     'middleware' => [
       'auth:api',
     ],

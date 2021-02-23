@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup           Location
- * @apiName            getAllCountries
+ * @apiName            findCity
  *
- * @api                {GET} /v1/countries Endpoint title here..
+ * @api                {GET} /v1/cities/:id Endpoint title here..
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -12,13 +12,13 @@
  *
  * @apiParam           {String}  parameters here..
  *
- * @apiUse             GeneralSuccessMultipleResponse
+ * @apiUse             CitySuccessSingleResponse
  */
 
 /** @var Route $router */
-$router->get('countries', [
-    'as' => 'api_location_get_all_countries',
-    'uses'  => 'Controller@getAllCountries',
+$router->get('cities/{id}', [
+    'as' => 'api_location_find_city',
+    'uses'  => 'Controller@findCity',
     'middleware' => [
       'auth:api',
     ],
