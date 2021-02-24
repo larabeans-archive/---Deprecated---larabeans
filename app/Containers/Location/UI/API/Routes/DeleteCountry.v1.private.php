@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            deleteCountry
  *
- * @api                {DELETE} /v1/countries/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/countries/:id Delete Country
+ * @apiDescription     Deletes existing country record
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id Country Id
  *
  * @apiUse             CountrySuccessSingleResponse
  */

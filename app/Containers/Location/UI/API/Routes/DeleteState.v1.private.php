@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            deleteState
  *
- * @api                {DELETE} /v1/states/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/states/:id Delete State
+ * @apiDescription     Deletes existing state record
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id State Id
  *
  * @apiUse             StateSuccessSingleResponse
  */

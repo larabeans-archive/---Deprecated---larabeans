@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            deleteCity
  *
- * @api                {DELETE} /v1/cities/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/cities/:id Delete City
+ * @apiDescription     Deletes existing city record
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id City Id
  *
  * @apiUse             CitySuccessSingleResponse
  */
