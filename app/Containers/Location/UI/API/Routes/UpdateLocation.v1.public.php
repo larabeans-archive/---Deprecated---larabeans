@@ -10,6 +10,7 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
+ * @apiParam           {String}  id
  * @apiParam           {String}  address_line_1
  * @apiParam           {String}  address_line_2
  * @apiParam           {String}  country_id
