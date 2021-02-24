@@ -2,15 +2,16 @@
 
 /**
  * @apiGroup           Location
- * @apiName            updateLocation
+ * @apiName            createLocation
  *
- * @api                {PATCH} /v1/locations/:id Update a location
- * @apiDescription     Update location by id
+ * @api                {POST} /v1/locations Create Location
+ * @apiDescription     Creates Location/Address for any locatable entity
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
- * @apiParam           {String}  id
+ * @apiParam           {String}  locatable_type Type of locatable entity e.g. user
+ * @apiParam           {String}  locatable_id UUID of locatable entity
  * @apiParam           {String}  address_line_1
  * @apiParam           {String}  address_line_2
  * @apiParam           {String}  country_id
@@ -24,9 +25,9 @@
  */
 
 /** @var Route $router */
-$router->patch('locations/{id}', [
-    'as' => 'api_location_update_location',
-    'uses'  => 'Controller@updateLocation',
+$router->post('locations', [
+    'as' => 'api_location_create_location',
+    'uses'  => 'Controller@createLocation',
     'middleware' => [
       'auth:api',
     ],

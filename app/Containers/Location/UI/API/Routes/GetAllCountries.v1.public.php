@@ -2,13 +2,13 @@
 
 /**
  * @apiGroup           Location
- * @apiName            getAllLocations
+ * @apiName            getAllCountries
  *
- * @api                {GET} /v1/locations Get all Locations
- * @apiDescription     Get all locations,query parameters supporting search criteria available here
+ * @api                {GET} /v1/countries Get All Countries
+ * @apiDescription     Get all countries,query parameters supporting search criteria available here
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      none
  *
  * @apiParam           {String}  filter include columns e.g. id;name
  * @apiParam           {String}  search search columns e.g. name:search-users
@@ -22,9 +22,9 @@
  */
 
 /** @var Route $router */
-$router->get('locations', [
-    'as' => 'api_location_get_all_locations',
-    'uses'  => 'Controller@getAllLocations',
+$router->get('countries', [
+    'as' => 'api_location_get_all_countries',
+    'uses'  => 'Controller@getAllCountries',
     'middleware' => [
       'auth:api',
     ],
