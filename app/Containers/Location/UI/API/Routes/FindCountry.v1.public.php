@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            findCountry
  *
- * @api                {GET} /v1/countries/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/countries/:id Find Country
+ * @apiDescription     Find country by Id
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id Country Id
  *
  * @apiUse             CountrySuccessSingleResponse
  */

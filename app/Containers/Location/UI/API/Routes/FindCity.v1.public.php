@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            findCity
  *
- * @api                {GET} /v1/cities/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/cities/:id Find City
+ * @apiDescription     Find City BY Id
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id City Id
  *
  * @apiUse             CitySuccessSingleResponse
  */

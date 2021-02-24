@@ -4,13 +4,13 @@
  * @apiGroup           Location
  * @apiName            findState
  *
- * @api                {GET} /v1/states/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/states/:id Find State
+ * @apiDescription     Find state by Id
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  id State Id
  *
  * @apiUse             StateSuccessSingleResponse
  */
