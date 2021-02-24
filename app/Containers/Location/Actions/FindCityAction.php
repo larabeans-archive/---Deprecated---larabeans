@@ -6,12 +6,12 @@ use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Apiato\Core\Foundation\Facades\Apiato;
 
-class GetCountryStatesAction extends Action
+class FindCityAction extends Action
 {
     public function run(Request $request)
     {
-        $state = Apiato::call('Location@GetCountryStatesTask', [$request->id]);
+        $city = Apiato::call('Location@FindCityTask', [$request->id]);
 
-        return $state;
+        return $city;
     }
 }

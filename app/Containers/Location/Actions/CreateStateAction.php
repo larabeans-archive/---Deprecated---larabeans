@@ -6,11 +6,15 @@ use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Apiato\Core\Foundation\Facades\Apiato;
 
-class GetCountryStatesAction extends Action
+class CreateStateAction extends Action
 {
     public function run(Request $request)
     {
-        $state = Apiato::call('Location@GetCountryStatesTask', [$request->id]);
+        $data = $request->sanitizeInput([
+            // add your request data here
+        ]);
+
+        $state = Apiato::call('Location@CreateStateTask', [$data]);
 
         return $state;
     }
