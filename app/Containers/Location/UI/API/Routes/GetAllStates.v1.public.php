@@ -4,13 +4,19 @@
  * @apiGroup           Location
  * @apiName            getAllStates
  *
- * @api                {GET} /v1/states Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/states Get All Cities
+ * @apiDescription     Get all states,query parameters supporting search criteria available here
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  filter include columns e.g. id;name
+ * @apiParam           {String}  search search columns e.g. name:search-users
+ * @apiParam           {String}  orderBy name of column e.g. id
+ * @apiParam           {String}  sortedBy asc or desc
+ * @apiParam           {Integer}  page page number
+ * @apiParam           {String}  include country,state,city
+ * @apiParam           {Integer}  limit records per page
  *
  * @apiUse             GeneralSuccessMultipleResponse
  */
