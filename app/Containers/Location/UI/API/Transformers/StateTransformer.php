@@ -2,10 +2,11 @@
 
 namespace App\Containers\Location\UI\API\Transformers;
 
-use App\Containers\Location\Models\City;
+use App\Containers\Location\Models\Location;
+use App\Containers\Location\Models\State;
 use App\Ship\Parents\Transformers\Transformer;
 
-class CityTransformer extends Transformer
+class StateTransformer extends Transformer
 {
     /**
      * @var  array
@@ -18,22 +19,22 @@ class CityTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
-
+      'cities'
     ];
 
     /**
-     * @param City $entity
+     * @param State $entity
      *
      * @return array
      */
-    public function transform(City $entity)
+    public function transform(State $entity)
     {
         $response = [
-            'object' => 'City',
+            'object' => 'State',
             'id' => $entity->getHashedKey(),
+            'country_id' => $entity->country_id,
             'name' => $entity->name,
-            'latitude' => $entity->latitude,
-            'longitude' => $entity->longitude,
+            'code' => $entity->code,
             'created_at' => $entity->created_at,
             'updated_at' => $entity->updated_at,
 
@@ -45,5 +46,10 @@ class CityTransformer extends Transformer
         ], $response);
 
         return $response;
+    }
+
+    public function includeCities(Location $location)
+    {
+      return $this->collection($location->cities, new CityTransformer());
     }
 }

@@ -11,14 +11,15 @@ class LocationTransformer extends Transformer
      * @var  array
      */
     protected $defaultIncludes = [
-
     ];
 
     /**
      * @var  array
      */
     protected $availableIncludes = [
-
+      'country',
+      'state',
+      'city'
     ];
 
     /**
@@ -31,9 +32,13 @@ class LocationTransformer extends Transformer
         $response = [
             'object' => 'Location',
             'id' => $entity->getHashedKey(),
+            'address_line_1' => $entity->address_line_1,
+            'address_line_2' => $entity->address_line_2,
+            'post_code' => $entity->post_code,
+            'latitude' => $entity->latitude,
+            'longitude' => $entity->longitude,
             'created_at' => $entity->created_at,
             'updated_at' => $entity->updated_at,
-
         ];
 
         $response = $this->ifAdmin([
@@ -42,5 +47,20 @@ class LocationTransformer extends Transformer
         ], $response);
 
         return $response;
+    }
+
+    public function includeCountry(Location $location)
+    {
+      return $this->item($location->country, new CountryTransformer());
+    }
+
+    public function includeState(Location $location)
+    {
+      return $this->item($location->state, new StateTransformer());
+    }
+
+    public function includeCity(Location $location)
+    {
+      return $this->item($location->city, new CityTransformer());
     }
 }
