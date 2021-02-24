@@ -5,9 +5,9 @@ namespace App\Containers\Location\UI\API\Requests;
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class DeleteLocationRequest.
+ * Class FindCountryRequest.
  */
-class DeleteLocationRequest extends Request
+class FindCountryRequest extends Request
 {
 
     /**
@@ -15,7 +15,7 @@ class DeleteLocationRequest extends Request
      *
      * @var string
      */
-    protected $transporter = \App\Containers\Location\Data\Transporters\DeleteLocationTransporter::class;
+    // protected $transporter = \App\Ship\Transporters\DataTransporter::class;
 
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -23,7 +23,7 @@ class DeleteLocationRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-locations|delete-location',
+        'permissions' => 'manage-countries|view-country',
         'roles'       => '',
     ];
 

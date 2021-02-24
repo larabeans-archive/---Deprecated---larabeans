@@ -15,7 +15,7 @@ class GetAllLocationsRequest extends Request
      *
      * @var string
      */
-    protected $transporter = \App\Containers\Location\Data\Transporters\GetAllLocationsTransporter::class;
+    // protected $transporter = \App\Containers\Location\Data\Transporters\GetAllLocationsTransporter::class;
 
     /**
      * Define which Roles and/or Permissions has access to this request.
