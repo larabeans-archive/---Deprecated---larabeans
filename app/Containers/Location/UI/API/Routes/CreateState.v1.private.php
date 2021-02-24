@@ -4,13 +4,15 @@
  * @apiGroup           Location
  * @apiName            createState
  *
- * @api                {POST} /v1/states Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {POST} /v1/states Create State
+ * @apiDescription     Add state record to existing country
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  country_id
+ * @apiParam           {String}  name
+ * @apiParam           {String}  code
  *
  * @apiUse             StateSuccessSingleResponse
  */

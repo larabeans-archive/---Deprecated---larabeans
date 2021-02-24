@@ -5,12 +5,16 @@
  * @apiName            createCity
  *
  * @api                {POST} /v1/cities Create New City
- * @apiDescription     Endpoint description here..
+ * @apiDescription     Adds city to existing state and country
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticate Admin User
+ * @apiPermission      Authenticate User
  *
- * @apiParam           {String}  parameters here..
+ * @apiParam           {String}  country_id
+ * @apiParam           {String}  state_id
+ * @apiParam           {String}  name
+ * @apiParam           {String}  latitude
+ * @apiParam           {String}  longitude
  *
  * @apiUse             CitySuccessSingleResponse
  */
