@@ -23,7 +23,7 @@ class DeleteCountryRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-counties|delete-country',
+        'permissions' => '',
         'roles'       => '',
     ];
 

@@ -23,7 +23,7 @@ class CreateCountryRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-countries|create-country',
+        'permissions' => '',
         'roles'       => '',
     ];
 

@@ -23,7 +23,7 @@ class CreateLocationRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-locations|create-location',
+        'permissions' => '',
         'roles'       => '',
     ];
 

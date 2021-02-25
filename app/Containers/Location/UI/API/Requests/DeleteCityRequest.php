@@ -23,7 +23,7 @@ class DeleteCityRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-cities|delete-city',
+        'permissions' => '',
         'roles'       => '',
     ];
 

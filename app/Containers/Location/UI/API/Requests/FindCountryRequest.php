@@ -23,7 +23,7 @@ class FindCountryRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-countries|view-country',
+        'permissions' => '',
         'roles'       => '',
     ];
 

@@ -23,7 +23,7 @@ class CreateCityRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-cities|create-city',
+        'permissions' => '',
         'roles'       => '',
     ];
 
