@@ -6,6 +6,7 @@ use App\Containers\Location\Data\Repositories\StateRepository;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
+use Illuminate\Support\Str;
 
 class FindStateTask extends Task
 {
@@ -17,10 +18,12 @@ class FindStateTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id)
+    public function run($stateNameOrId)
     {
         try {
-            return $this->repository->find($id);
+            $query = is_numeric($stateNameOrId) ? ['id' => $stateNameOrId] : (Str::isUuid($stateNameOrId) ? ['id' => $stateNameOrId] : ['name' => $stateNameOrId]);
+
+            return $this->repository->findWhere($query)->first();
         }
         catch (Exception $exception) {
             throw new NotFoundException();

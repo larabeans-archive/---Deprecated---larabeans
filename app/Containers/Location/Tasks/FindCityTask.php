@@ -2,6 +2,7 @@
 
 namespace App\Containers\Location\Tasks;
 
+use Illuminate\Support\Str;
 use App\Containers\Location\Data\Repositories\CityRepository;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
@@ -17,10 +18,12 @@ class FindCityTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id)
+    public function run($cityNameOrId)
     {
         try {
-            return $this->repository->find($id);
+            $query = is_numeric($cityNameOrId) ? ['id' => $cityNameOrId] : (Str::isUuid($cityNameOrId) ? ['id' => $cityNameOrId] : ['name' => $cityNameOrId]);
+
+            return $this->repository->findWhere($query)->first();
         }
         catch (Exception $exception) {
             throw new NotFoundException();

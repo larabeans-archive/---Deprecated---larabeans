@@ -6,11 +6,11 @@ use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Apiato\Core\Foundation\Facades\Apiato;
 
-class FindCountryByIdAction extends Action
+class FindCountryAction extends Action
 {
     public function run(Request $request)
     {
-        $country = Apiato::call('Location@FindCountryByIdTask', [$request->id]);
+        $country = Apiato::call('Location@FindCountryTask', [$request->id]);
 
         return $country;
     }
