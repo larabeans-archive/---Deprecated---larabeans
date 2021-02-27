@@ -14,7 +14,11 @@ class CreateStateAction extends Action
             // add your request data here
         ]);
 
-        $state = Apiato::call('Location@CreateStateTask', [$data]);
+        $state = Apiato::call('Location@CreateStateTask', [
+            $data->country_id,
+            $data->name,
+            $data->code
+        ]);
 
         return $state;
     }

@@ -36,6 +36,8 @@ abstract class UserModel extends AbstractUserModel
      */
     public $incrementing = false;
 
+    protected $keyType = "uuid";
+
     public function findForPassport($identifier)
     {
         $allowedLoginAttributes = config('authentication-container.login.allowed_login_attributes', ['email' => []]);

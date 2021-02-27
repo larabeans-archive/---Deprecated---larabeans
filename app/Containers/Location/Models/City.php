@@ -32,6 +32,10 @@ class City extends Model
      */
     protected $resourceKey = 'cities';
 
+    public $incrementing = true;
+
+    protected $keyType = "int";
+
     public function country() {
         return $this->belongsTo('App\Containers\Location\Models\Country', 'country_id', 'id');
     }

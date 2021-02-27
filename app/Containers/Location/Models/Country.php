@@ -32,6 +32,10 @@ class Country extends Model
      */
     protected $resourceKey = 'countries';
 
+    public $incrementing = true;
+
+    protected $keyType = "int";
+
     public function states(){
         return $this->hasMany( 'App\Containers\Location\Models\State', 'country_id', 'id');
     }

@@ -14,7 +14,13 @@ class CreateCityAction extends Action
             // add your request data here
         ]);
 
-        $city = Apiato::call('Location@CreateCityTask', [$data]);
+        $city = Apiato::call('Location@CreateCityTask', [
+            $data->country_id,
+            $data->state_id,
+            $data->name,
+            $data->latitude,
+            $data->longitude
+        ]);
 
         return $city;
     }

@@ -26,4 +26,6 @@ abstract class Model extends AbstractModel
      * @var bool
      */
     public $incrementing = false;
+
+    protected $keyType = "uuid";
 }

@@ -15,7 +15,6 @@ class CreateStateTask extends Task
     }
 
     public function run(
-      int $id,
       int $countryId,
       string $name,
       string $code
@@ -23,7 +22,6 @@ class CreateStateTask extends Task
     {
         try {
             $this->repository->create([
-                "id"         =>    $id,
                 "country_id" =>    $countryId,
                 "name"       =>    $name,
                 "code"       =>    $code

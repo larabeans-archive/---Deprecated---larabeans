@@ -20,7 +20,6 @@ class CreateCountryTask extends Task
     }
 
     public function run(
-      int $id,
       string $name,
       string $alpha2,
       string $alpha3,
@@ -36,7 +35,6 @@ class CreateCountryTask extends Task
     {
         try {
             $this->repository->create([
-                "id"           =>    $id,
                 "name"         =>    $name,
                 "alpha2"       =>    $alpha2,
                 "alpha3"       =>    $alpha3,
