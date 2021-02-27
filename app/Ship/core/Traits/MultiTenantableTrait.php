@@ -1,9 +1,8 @@
 <?php
 namespace Apiato\Core\Traits;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Config;
-use Apiato\Core\Traits\MultiTenantableScope;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class HashIdTrait.
@@ -15,12 +14,18 @@ trait MultiTenantableTrait {
   public static function bootMultiTenantableTrait() {
 
     static::creating(function ($model) {
-      if(Config::get('tenant-container.enabled') && !in_array($model->getTable(), Config::get('tenant-container.ignore_tables'))){
-        if(!$model->tenant_id) {
-          if (auth()->check()) {
-            $model->tenant_id = auth()->user()->tenant_id;
-          } else {
-            $model->tenant_id = Config::get('tenant-container.default_id');
+      if(Config::get('tenant-container.enabled')) {
+
+        // if db table in context, contains tenant column, set tenant id
+        if (Schema::hasColumn($model->getTable(), 'tenant_id')) {
+          if (!$model->tenant_id) {
+            if (auth()->check()) {
+              $model->tenant_id = auth()->user()->tenant_id;
+            } else {
+              // TODO: Still need to make it better
+              // Used only once on first time seeding
+              $model->tenant_id = Config::get('tenant-container.default_id');
+            }
           }
         }
       }
@@ -33,7 +38,4 @@ trait MultiTenantableTrait {
       }
     }
   }
-
-  // TODO: Handle tenant_id globally while creating new record
-
 }
