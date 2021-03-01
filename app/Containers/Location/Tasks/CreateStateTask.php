@@ -21,7 +21,7 @@ class CreateStateTask extends Task
     )
     {
         try {
-            $this->repository->create([
+            return $this->repository->create([
                 "country_id" =>    $countryId,
                 "name"       =>    $name,
                 "code"       =>    $code

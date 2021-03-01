@@ -7,7 +7,17 @@ use App\Ship\Parents\Models\Model;
 class Country extends Model
 {
     protected $fillable = [
-
+        "name",
+        "alpha2",
+        "alpha3",
+        "isd",
+        "capital",
+        "currency",
+        "native",
+        "continent",
+        "subcontinent",
+        "emoji",
+        "emoji_unicode"
     ];
 
     protected $attributes = [

@@ -7,7 +7,11 @@ use App\Ship\Parents\Models\Model;
 class City extends Model
 {
     protected $fillable = [
-
+        "country_id",
+        "state_id",
+        "name",
+        "latitude",
+        "longitude"
     ];
 
     protected $attributes = [

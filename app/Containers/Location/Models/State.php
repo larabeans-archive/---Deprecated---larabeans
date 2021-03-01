@@ -7,7 +7,9 @@ use App\Ship\Parents\Models\Model;
 class State extends Model
 {
     protected $fillable = [
-
+        "country_id",
+        "name",
+        "code"
     ];
 
     protected $attributes = [

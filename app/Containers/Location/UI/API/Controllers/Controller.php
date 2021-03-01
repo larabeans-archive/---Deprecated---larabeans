@@ -32,6 +32,7 @@ use App\Containers\Location\UI\API\Transformers\LocationTransformer;
 use App\Containers\Location\UI\API\Transformers\StateTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Ship\Transporters\DataTransporter;
 
 /**
  * Class Controller
@@ -68,7 +69,7 @@ class Controller extends ApiController
      */
     public function createLocation(CreateLocationRequest $request)
     {
-      $location = Apiato::call('Location@CreateLocationAction', [$request]);
+      $location = Apiato::call('Location@CreateLocationAction', [new DataTransporter($request)]);
 
       return $this->transform($location, LocationTransformer::class);
     }
@@ -129,7 +130,7 @@ class Controller extends ApiController
      */
     public function createCountry(CreateCountryRequest $request)
     {
-      $country = Apiato::call('Location@CreateCountryAction', [$request]);
+      $country = Apiato::call('Location@CreateCountryAction', [new DataTransporter($request)]);
 
       return $this->transform($country, CountryTransformer::class);
     }
@@ -194,7 +195,7 @@ class Controller extends ApiController
      */
     public function createState(CreateStateRequest $request)
     {
-      $state = Apiato::call('Location@CreateStateAction', [$request]);
+      $state = Apiato::call('Location@CreateStateAction', [new DataTransporter($request)]);
 
       return $this->transform($state, StateTransformer::class);
     }
@@ -259,7 +260,7 @@ class Controller extends ApiController
      */
     public function createCity(CreateCityRequest $request)
     {
-      $city = Apiato::call('Location@CreateCityAction', [$request]);
+      $city = Apiato::call('Location@CreateCityAction', [new DataTransporter($request)]);
 
       return $this->transform($city, CityTransformer::class);
     }

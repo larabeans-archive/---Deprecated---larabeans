@@ -24,7 +24,7 @@ class CreateCityTask extends Task
     )
     {
         try {
-            $this->repository->create([
+            return $this->repository->create([
                 "country_id" =>    $countryId,
                 "state_id"   =>    $stateId,
                 "name"       =>    $name,

@@ -7,7 +7,16 @@ use App\Ship\Parents\Models\Model;
 class Location extends Model
 {
     protected $fillable = [
-
+        "locatable_type",
+        "locatable_id",
+        "address_line_1",
+        "address_line_2",
+        "city_id",
+        "state_id",
+        "country_id",
+        "post_code",
+        "latitude",
+        "longitude"
     ];
 
     protected $attributes = [

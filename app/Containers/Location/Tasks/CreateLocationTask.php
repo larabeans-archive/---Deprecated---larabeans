@@ -32,16 +32,16 @@ class CreateLocationTask extends Task
     {
 
         $data = [
-          'locatable_type' => $locatableType,
-          'locatable_id'    => $locatableId,
-          'address_line_1' => $addressLine1,
-          'address_line_2' => $addressLine2,
-          'city_id'        => $city,
-          'state_id'       => $stateId,
-          'country_id'     => $countryId,
-          'post_code'      => $postCode,
-          'latitude'       => $latitude,
-          'longitude'      => $longitude
+            'locatable_type' => $locatableType,
+            'locatable_id'    => $locatableId,
+            'address_line_1' => $addressLine1,
+            'address_line_2' => $addressLine2,
+            'city_id'        => $city,
+            'state_id'       => $stateId,
+            'country_id'     => $countryId,
+            'post_code'      => $postCode,
+            'latitude'       => $latitude,
+            'longitude'      => $longitude
         ];
 
         try {

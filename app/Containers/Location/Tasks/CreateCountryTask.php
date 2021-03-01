@@ -34,7 +34,7 @@ class CreateCountryTask extends Task
     )
     {
         try {
-            $this->repository->create([
+            return $this->repository->create([
                 "name"         =>    $name,
                 "alpha2"       =>    $alpha2,
                 "alpha3"       =>    $alpha3,

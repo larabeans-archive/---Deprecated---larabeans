@@ -5,15 +5,12 @@ namespace App\Containers\Location\Actions;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Ship\Transporters\DataTransporter;
 
 class CreateCountryAction extends Action
 {
-    public function run(Request $request)
+    public function run(DataTransporter $data)
     {
-        $data = $request->sanitizeInput([
-            // add your request data here
-        ]);
-
         $country = Apiato::call('Location@CreateCountryTask', [
             $data->name,
             $data->alpha2,
