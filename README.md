@@ -66,7 +66,7 @@ Welcome the contribution from you !
 
 # Thanks
 
-![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/jetbrains.svg)
+![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/supporters/jetbrains.svg)
 
 Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
 
