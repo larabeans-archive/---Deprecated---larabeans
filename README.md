@@ -66,7 +66,7 @@ Welcome the contribution from you !
 
 # Thanks
 
-![jetbrains.svg](https://github.com/larabeans/larabeans/blob/master/jetbrains.svg)
+![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/jetbrains.svg)
 
 Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
 
@@ -75,4 +75,4 @@ Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans
 <a name="License"></a>
 ## License
 
-[MIT](https://github.com/larabeans/larabeans/blob/master/LICENSE) © Larabeans
+[MIT](https://github.com/larabeans/larabeans/blob/develop/LICENSE) © Larabeans
