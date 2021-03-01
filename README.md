@@ -54,13 +54,21 @@ Apiato gives you the core features of robust API's fully documented, for free; s
 It's completely **optional** to build your application using the Porto architecture.
 Alternatively, you can build it using the [MVC](http://docs.apiato.io/getting-started/architecture/#mvc-introduction) architecture, and still benefit from all the features of Apiato.
 
-<br>
-
-<p align="center">
-	<a href="http://docs.apiato.io/">
-	   <img src="https://github.com/apiato/documentation/blob/master/images/documentation-button.png" width=350px" alt="Apiato Docs"/>
-	</a>
+<p>
+	<a href="http://docs.apiato.io/">Apiato Documentation</a>
 </p>
+
+---
+
+## Contribution
+
+Welcome the contribution from you !
+
+# Thanks
+
+![jetbrains.svg](https://github.com/larabeans/larabeans/blob/master/jetbrains.svg)
+
+Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
 
 ---
 
