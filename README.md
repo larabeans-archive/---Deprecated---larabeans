@@ -64,15 +64,11 @@ Alternatively, you can build it using the [MVC](http://docs.apiato.io/getting-st
 
 Welcome the contribution from you !
 
----
-
 ## Thanks
 
 ![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/supporters/jetbrains.svg)
   
 Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
-
----
 
 <a name="License"></a>
 ## License
