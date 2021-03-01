@@ -67,11 +67,11 @@ Welcome the contribution from you !
 ---
 
 ## Thanks
-<p align="center">
-  ![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/supporters/jetbrains.svg)
+
+![jetbrains.svg](https://github.com/larabeans/larabeans/blob/develop/supporters/jetbrains.svg)
   
-  Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
-</p>
+Special thanks to the [Jetbrains Team](https://www.jetbrains.com/?from=larabeans) for their support.
+
 ---
 
 <a name="License"></a>
