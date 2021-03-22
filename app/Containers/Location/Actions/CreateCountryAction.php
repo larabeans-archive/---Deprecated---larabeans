@@ -12,6 +12,7 @@ class CreateCountryAction extends Action
     public function run(DataTransporter $data)
     {
         $country = Apiato::call('Location@CreateCountryTask', [
+            0,
             $data->name,
             $data->alpha2,
             $data->alpha3,

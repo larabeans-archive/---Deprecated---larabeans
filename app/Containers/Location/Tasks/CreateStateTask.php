@@ -15,17 +15,24 @@ class CreateStateTask extends Task
     }
 
     public function run(
+      int $id = 0,
       int $countryId,
       string $name,
       string $code
     )
     {
         try {
-            return $this->repository->create([
-                "country_id" =>    $countryId,
-                "name"       =>    $name,
-                "code"       =>    $code
-            ]);
+            $data = [
+              "country_id" =>    $countryId,
+              "name"       =>    $name,
+              "code"       =>    $code
+            ];
+
+            if($id) {
+              $data["id"] = $id;
+            }
+
+            return $this->repository->create($data);
         }
         catch (Exception $exception) {
             throw new CreateResourceFailedException();

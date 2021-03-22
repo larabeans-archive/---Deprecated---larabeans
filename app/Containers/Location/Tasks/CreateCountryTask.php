@@ -20,6 +20,7 @@ class CreateCountryTask extends Task
     }
 
     public function run(
+      int $id = 0,
       string $name,
       string $alpha2,
       string $alpha3,
@@ -34,19 +35,25 @@ class CreateCountryTask extends Task
     )
     {
         try {
-            return $this->repository->create([
-                "name"         =>    $name,
-                "alpha2"       =>    $alpha2,
-                "alpha3"       =>    $alpha3,
-                "isd"          =>    $isd,
-                "capital"      =>    $capital,
-                "currency"     =>    $currency,
-                "native"       =>    $native,
-                "continent"    =>    $continent,
-                "subcontinent" =>    $subcontinent,
-                "emoji"        =>    $emoji,
-                "emoji_unicode"=>    $emojiUnicode
-            ]);
+            $data = [
+              "name"         =>    $name,
+              "alpha2"       =>    $alpha2,
+              "alpha3"       =>    $alpha3,
+              "isd"          =>    $isd,
+              "capital"      =>    $capital,
+              "currency"     =>    $currency,
+              "native"       =>    $native,
+              "continent"    =>    $continent,
+              "subcontinent" =>    $subcontinent,
+              "emoji"        =>    $emoji,
+              "emoji_unicode"=>    $emojiUnicode
+            ];
+
+            if($id) {
+              $data["id"] = $id;
+            }
+
+            return $this->repository->create($data);
         }
         catch (Exception $exception) {
             throw new CreateResourceFailedException();

@@ -32,7 +32,7 @@ class CountryStateCitySeeder extends Seeder
         foreach ($countries as $country) {
             $country = (object) $country;
             Apiato::call('Location@CreateCountryTask', [
-                $country->id ? $country->id : '',
+                $country->id ? $country->id : 0,
                 $country->name ? $country->name : '',
                 $country->iso2 ? $country->iso2 : '',
                 $country->iso3 ? $country->iso3 : '',
@@ -50,7 +50,7 @@ class CountryStateCitySeeder extends Seeder
         foreach ($states as $state) {
             $state = (object) $state;
             Apiato::call('Location@CreateStateTask', [
-                $state->id ? $state->id : '',
+                $state->id ? $state->id : 0,
                 $state->country_id ? $state->country_id : '',
                 $state->name ? $state->name : '',
                 $state->state_code ? $state->state_code : '',
@@ -60,7 +60,7 @@ class CountryStateCitySeeder extends Seeder
         foreach ($cities as $city) {
             $city = (object) $city;
             Apiato::call('Location@CreateCityTask', [
-                $city->id ? $city->id : '',
+                $city->id ? $city->id : 0,
                 $city->country_id ? $city->country_id : '',
                 $city->state_id ? $city->state_id : '',
                 $city->name ? $city->name : '',

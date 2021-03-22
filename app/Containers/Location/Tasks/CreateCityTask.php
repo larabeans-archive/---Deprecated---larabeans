@@ -16,6 +16,7 @@ class CreateCityTask extends Task
     }
 
     public function run(
+        int $id = 0,
         int $countryId,
         int $stateId,
         string $name,
@@ -24,13 +25,18 @@ class CreateCityTask extends Task
     )
     {
         try {
-            return $this->repository->create([
-                "country_id" =>    $countryId,
-                "state_id"   =>    $stateId,
-                "name"       =>    $name,
-                "latitude"   =>    $latitude,
-                "longitude"  =>    $longitude
-            ]);
+            $data = [
+              "country_id" =>    $countryId,
+              "state_id"   =>    $stateId,
+              "name"       =>    $name,
+              "latitude"   =>    $latitude,
+              "longitude"  =>    $longitude
+            ];
+
+            if($id) {
+              $data["id"] = $id;
+            }
+            return $this->repository->create($data);
         }
         catch (Exception $exception) {
           throw new CreateResourceFailedException();
